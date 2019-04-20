@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LotteryTeamRow from './LotteryTeamRow';
 
 class LotteryTeams extends Component {
 constructor(){
@@ -23,7 +24,19 @@ constructor(){
 }
     render() {
         return (
-            <div></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Place</th>
+                        <th>Team</th>
+                    </tr>
+                </thead>
+                <tbody>   
+                        {this.state.lotteryTeams.map(team =>
+                            <LotteryTeamRow team={team}/>
+                        )}
+                </tbody>
+            </table>
         )
     }
 }
