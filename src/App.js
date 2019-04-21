@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import LotteryTeams from './LotteryTeams.js'
+import LotteryTeams from './LotteryTeams/LotteryTeams.js'
 class App extends Component {
   render() {
     return (

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LotteryTeamRow from './LotteryTeamRow';
+import SimLotteryButton from '../SimLotteryButton/SimLotteryButton';
 
 class LotteryTeams extends Component {
 constructor(){
@@ -24,6 +25,8 @@ constructor(){
 }
     render() {
         return (
+            <div>
+            <div>
             <table>
                 <thead>
                     <tr>
@@ -37,6 +40,9 @@ constructor(){
                         )}
                 </tbody>
             </table>
+            </div>
+            <SimLotteryButton lotteryTeams = {this.state.lotteryTeams}/>
+            </div>
         )
     }
 }
