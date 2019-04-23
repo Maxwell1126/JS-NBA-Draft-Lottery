@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import LotteryTeamRow from './LotteryTeamRow';
 import SimLotteryButton from '../SimLotteryButton/SimLotteryButton';
 
@@ -35,6 +36,7 @@ constructor(){
                     </tr>
                 </thead>
                 <tbody>   
+                    {/* {this.props} */}
                         {this.state.lotteryTeams.map(team =>
                             <LotteryTeamRow team={team}/>
                         )}
@@ -47,4 +49,7 @@ constructor(){
     }
 }
 
-export default LotteryTeams;
+const mapStateToProps = reduxStore => ({
+    reduxStore
+});
+export default connect(mapStateToProps)(LotteryTeams);

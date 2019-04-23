@@ -21,10 +21,10 @@ const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
         case 'SET_ORDER':
             return {
             };
-        case 'RESET_ORDER':
+        case 'ORIGINAL_ORDER':
             return DEFAULT_ORDER;
-        case 'LOGOUT':
-            return DEFAULT_REQUEST;
+        // case 'LOGOUT':
+        //     return DEFAULT_REQUEST;
         default:
             return state;
     }
