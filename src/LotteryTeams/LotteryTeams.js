@@ -4,8 +4,8 @@ import LotteryTeamRow from './LotteryTeamRow';
 import SimLotteryButton from '../SimLotteryButton/SimLotteryButton';
 
 class LotteryTeams extends Component {
-constructor(){
-    super()
+constructor(props){
+    super(props)
     this.state = {
         lotteryTeams:
             [{name: "New York", seed: 1, place: 1},
@@ -22,8 +22,15 @@ constructor(){
             { name: "Charlotte", seed: 12, place: 12 },
             { name: "Miami", seed: 13, place: 13 },
             { name: "Boston", seed: 14, place: 14 }],
-    }
+    }   
 }
+
+    componentDidMount() {
+        let action = { type: 'ORIGINAL_ORDER' }
+        this.props.dispatch(action);
+    }
+
+
     render() {
         return (
             <div>
@@ -36,12 +43,18 @@ constructor(){
                     </tr>
                 </thead>
                 <tbody>   
-                    {/* {this.props} */}
-                        {this.state.lotteryTeams.map(team =>
+                            {this.props.reduxStore.draftLotteryOrder.map(team=>{
+                             return   <tr>
+                                    <td>{team.place}</td>
+                                    <td>{team.name}</td>
+                                </tr>
+                            })}
+                        {/* {this.state.lotteryTeams.map(team =>
                             <LotteryTeamRow team={team}/>
-                        )}
+                        )} */}
                 </tbody>
             </table>
+            {JSON.stringify.reduxStore}
             </div>
             <SimLotteryButton lotteryTeams = {this.state.lotteryTeams}/>
             </div>

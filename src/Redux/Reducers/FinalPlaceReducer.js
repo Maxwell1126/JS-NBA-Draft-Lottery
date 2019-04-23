@@ -1,5 +1,4 @@
-const DEFAULT_ORDER = {
-    lotteryTeams:
+const DEFAULT_ORDER = 
 [{ name: "New York", seed: 1, place: 1 },
 { name: "Cleveland", seed: 2, place: 2 },
 { name: "Phoenix", seed: 3, place: 3 },
@@ -13,8 +12,7 @@ const DEFAULT_ORDER = {
 { name: "Los Angeles", seed: 11, place: 11 },
 { name: "Charlotte", seed: 12, place: 12 },
 { name: "Miami", seed: 13, place: 13 },
-{ name: "Boston", seed: 14, place: 14 }],
-    }
+{ name: "Boston", seed: 14, place: 14 }]
 
 const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
     switch (action.type) {
