@@ -18,34 +18,11 @@ const DEFAULT_ORDER = {
 
 const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
     switch (action.type) {
-        case 'SET_SICK_START_DATE':
-            const startDate = action.payload;
-            let endDate = state.endDate;
-            if (startDate >= endDate) {
-                endDate = startDate;
-            }
+        case 'SET_ORDER':
             return {
-                ...state,
-                startDate: startDate,
-                endDate: endDate
             };
-        case 'SET_SICK_START_HOURS':
-            return {
-                ...state,
-                startHours: action.payload
-            };
-        case 'SET_SICK_END_DATE':
-            return {
-                ...state,
-                endDate: action.payload
-            };
-        case 'SET_SICK_END_HOURS':
-            return {
-                ...state,
-                endHours: action.payload
-            };
-        case 'RESET_REQUEST':
-            return DEFAULT_REQUEST;
+        case 'RESET_ORDER':
+            return DEFAULT_ORDER;
         case 'LOGOUT':
             return DEFAULT_REQUEST;
         default:
