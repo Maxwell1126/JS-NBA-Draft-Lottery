@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './LotteryTeams.css';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
 class LotteryTeams extends Component {
     constructor(props) {
         super(props)
@@ -14,26 +20,26 @@ class LotteryTeams extends Component {
     render() {
         return (
             <div className="tableContainer">
-                <table >
-                    <thead>
-                        <tr>
-                            <th>Place</th>
-                            <th>Team</th>
-                            <th>Original Seed</th>
-                            <th>Jumped/Fell</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <Table className="lottoTable">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Place</TableCell>
+                            <TableCell>Team</TableCell>
+                            <TableCell>Original Seed</TableCell>
+                            <TableCell>Jumped/Fell</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {this.props.reduxStore.draftLotteryOrder.map(team => {
-                            return <tr>
-                                <td>{team.place}</td>
-                                <td>{team.name}</td>
-                                <td>{team.seed}</td>
-                                <td>{(team.place - team.seed) * (-1)}</td>
-                            </tr>
+                            return <TableRow>
+                                <TableCell>{team.place}</TableCell>
+                                <TableCell>{team.name}</TableCell>
+                                <TableCell>{team.seed}</TableCell>
+                                <TableCell>{(team.place - team.seed) * (-1)}</TableCell>
+                            </TableRow>
                         })}
-                    </tbody>
-                </table>
+                    </TableBody>
+                </Table>
             </div>
         )
     }

@@ -1,5 +1,11 @@
 .tableContainer {
+margin-left: 30%;
+margin-right: 30%;
 display: flex;
 justify-content: center;
 padding-bottom: 10px;
+}
+
+.lottoTable{
+
 }
