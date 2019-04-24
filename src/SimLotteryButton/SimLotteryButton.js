@@ -1,33 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+let first = "";
+let second = "";
+let third = "";
+let fourth = "";
 class SimLotteryButton extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            firstPlace: {},
-            secondPlace: {},
-            thirdPlace: {},
-            fourthPlace: {},
-            win: "",
-
-        }
     }
 
     runLottery = (event) => {
 
-        let first = "";
-        let second = "";
-        let third = "";
-        let fourth = "";
-        // let winner="";
-        // let winningNumber = (Math.floor(Math.random() * 1000) + 1);
-
         while (fourth == "") {
             let winner = {};
             let winningNumber = (Math.floor(Math.random() * 1000) + 1);
-            // console.log('winning number', winningNumber);
-            // console.log('winner', winner);
 
             if (winningNumber < 141) {
                 winner = { name: "New York", seed: 1 };
@@ -59,13 +45,9 @@ class SimLotteryButton extends Component {
                 winner = { name: "Boston", seed: 14 };
             }
 
-
             // determine first place.
             if (first == "") {
                 first = winner;
-                this.setState({
-                    firstPlace: first,
-                })
                 // determine second place.
                 // determine second place or check to see that it has been fulfilled.
             } else if (first != "" && second == "") {
@@ -73,9 +55,6 @@ class SimLotteryButton extends Component {
                 // happens.
                 if (first.seed != winner.seed) {
                     second = winner;
-                    this.setState({
-                        secondPlace: second,
-                    })
                 }
 
                 // determine third place.
@@ -84,9 +63,6 @@ class SimLotteryButton extends Component {
                 // happens.
                 if (first.seed != winner.seed && second.seed != winner.seed) {
                     third = winner;
-                    this.setState({
-                        thirdPlace: third,
-                    })
                 }
 
                 // determine fourth place.
@@ -95,14 +71,9 @@ class SimLotteryButton extends Component {
                 // happens.
                 if (first.seed != winner.seed && second.seed != winner.seed && third.seed != winner.seed) {
                     fourth = winner;
-                    this.setState({
-                        fourthPlace: fourth,
-                    })
-
                 }
             }
         }
-        console.log('first', first);
 
         let action = {
             type: 'SET_ORDER',
@@ -114,18 +85,16 @@ class SimLotteryButton extends Component {
             }
         }
         this.props.dispatch(action);
-
     }
 
     render() {
         return (
             <div>
                 <button onClick={this.runLottery}>Simulate Draft Lottery</button>
-                <p>first</p>{JSON.stringify(this.state.firstPlace)}
-                <p>second</p>{JSON.stringify(this.state.secondPlace)}
-                <p>third</p>{JSON.stringify(this.state.thirdPlace)}
-                <p>fourth</p>{JSON.stringify(this.state.fourthPlace)}
-                {/* {JSON.stringify(this.state.win)} */}
+                <p>first</p>{JSON.stringify(first)}
+                <p>second</p>{JSON.stringify(second)}
+                <p>third</p>{JSON.stringify(third)}
+                <p>fourth</p>{JSON.stringify(fourth)}
             </div>
         )
     }
