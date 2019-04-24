@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 class SimLotteryButton extends Component {
     constructor(props) {
@@ -90,7 +91,7 @@ class SimLotteryButton extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.runLottery}>Simulate Draft Lottery</button>
+                <Button variant="outlined" onClick={this.runLottery}>Simulate Draft Lottery</Button>
             </div>
         )
     }
