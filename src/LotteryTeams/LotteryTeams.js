@@ -23,6 +23,7 @@ class LotteryTeams extends Component {
                                 <th>Place</th>
                                 <th>Team</th>
                                 <th>Original Seed</th>
+                                <th>Jumped/Fell</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,6 +32,7 @@ class LotteryTeams extends Component {
                                     <td>{team.place}</td>
                                     <td>{team.name}</td>
                                     <td>{team.seed}</td>
+                                    <td>{(team.place - team.seed) * (-1)}</td>
                                 </tr>
                             })}
                         </tbody>
