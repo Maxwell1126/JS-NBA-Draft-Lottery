@@ -6,6 +6,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Grid from '@material-ui/core/Grid';
 
 class LotteryTeams extends Component {
     constructor(props) {
@@ -20,10 +21,16 @@ class LotteryTeams extends Component {
     render() {
         return (
             <div className="tableContainer">
-                <Table className="lottoTable">
+                <Grid
+                    container xs
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                >
+                <Table item xs className="lottoTable">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Place</TableCell>
+                            <TableCell>Pick</TableCell>
                             <TableCell>Team</TableCell>
                             <TableCell>Original Seed</TableCell>
                             <TableCell>Jumped/Fell</TableCell>
@@ -32,7 +39,7 @@ class LotteryTeams extends Component {
                     <TableBody>
                         {this.props.reduxStore.draftLotteryOrder.map(team => {
                             return <TableRow>
-                                <TableCell>{team.place}</TableCell>
+                                <TableCell><b>{team.place}</b></TableCell>
                                 <TableCell>{team.name}</TableCell>
                                 <TableCell>{team.seed}</TableCell>
                                 <TableCell>{(team.place - team.seed) * (-1)}</TableCell>
@@ -40,6 +47,7 @@ class LotteryTeams extends Component {
                         })}
                     </TableBody>
                 </Table>
+                </Grid>
             </div>
         )
     }
