@@ -1,65 +1,65 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class SimLotteryButton extends Component{
-    constructor(props){
+class SimLotteryButton extends Component {
+    constructor(props) {
         super(props)
         this.state = {
-            firstPlace: "",
-            secondPlace: "",
-            thirdPlace: "",
-            fourthPlace: "",
-            win:"",
+            firstPlace: {},
+            secondPlace: {},
+            thirdPlace: {},
+            fourthPlace: {},
+            win: "",
 
         }
     }
 
     runLottery = (event) => {
-        
-        let first= "";
-        let second= "";
-        let third= "";
-        let fourth= "";
+
+        let first = "";
+        let second = "";
+        let third = "";
+        let fourth = "";
         // let winner="";
         // let winningNumber = (Math.floor(Math.random() * 1000) + 1);
-        
+
         while (fourth == "") {
-            let winner = "";
+            let winner = {};
             let winningNumber = (Math.floor(Math.random() * 1000) + 1);
             // console.log('winning number', winningNumber);
             // console.log('winner', winner);
-            
+
             if (winningNumber < 141) {
-                winner = "New York";
+                winner = { name: "New York", seed: 1 };
             } else if (winningNumber >= 141 && winningNumber <= 278) {
-                winner = "Cleveland";
+                winner = { name: "Cleveland", seed: 2 };
             } else if (winningNumber >= 281 && winningNumber <= 420) {
-                winner = "Phoenix";
+                winner = { name: "Phoenix", seed: 3 };
             } else if (winningNumber >= 421 && winningNumber <= 545) {
-                winner = "Chicago";
+                winner = { name: "Chicago", seed: 4 };
             } else if (winningNumber >= 546 && winningNumber <= 650) {
-                winner = "Atlanta";
+                winner = { name: "Atlanta", seed: 5 };
             } else if (winningNumber >= 651 && winningNumber <= 740) {
-                winner = "Washington";
+                winner = { name: "Washington", seed: 6 };
             } else if (winningNumber >= 741 && winningNumber <= 815) {
-                winner = "New Orleans";
+                winner = { name: "New Orleans", seed: 7 };
             } else if (winningNumber >= 816 && winningNumber <= 875) {
-                winner = "Atlanta";
+                winner = { name: "Atlanta", seed: 8 };
             } else if (winningNumber >= 876 && winningNumber <= 920) {
-                winner = "Memphis";
+                winner = { name: "Memphis", seed: 9 };
             } else if (winningNumber >= 921 && winningNumber <= 950) {
-                winner = "Minnesota";
+                winner = { name: "Minnesota", seed: 10 };
             } else if (winningNumber >= 951 && winningNumber <= 970) {
-                winner = "Los Angeles";
+                winner = { name: "Los Angeles", seed: 11 };
             } else if (winningNumber >= 971 && winningNumber <= 985) {
-                winner = "Charlotte";
+                winner = { name: "Charlotte", seed: 12 };
             } else if (winningNumber >= 986 && winningNumber <= 995) {
-                winner = "Miami";
+                winner = { name: "Miami", seed: 13 };
             } else if (winningNumber >= 996 && winningNumber <= 1000) {
-                winner = "Boston";
+                winner = { name: "Boston", seed: 14 };
             }
-        console.log('winner', winner);
-        
-       
+
+
             // determine first place.
             if (first == "") {
                 first = winner;
@@ -68,10 +68,10 @@ class SimLotteryButton extends Component{
                 })
                 // determine second place.
                 // determine second place or check to see that it has been fulfilled.
-            } else if (first!= "" && second == "") {
+            } else if (first != "" && second == "") {
                 // determine if the winner has already won a higher place. Re-roll if that
                 // happens.
-                if (first != winner) {
+                if (first.seed != winner.seed) {
                     second = winner;
                     this.setState({
                         secondPlace: second,
@@ -82,7 +82,7 @@ class SimLotteryButton extends Component{
             } else if (first != "" && second != "" && third == "") {
                 // determine if the winner has already won a higher place. Re-roll if that
                 // happens.
-                if (first != winner && second != winner) {
+                if (first.seed != winner.seed && second.seed != winner.seed) {
                     third = winner;
                     this.setState({
                         thirdPlace: third,
@@ -93,22 +93,35 @@ class SimLotteryButton extends Component{
             } else if (first != "" && second != "" && third != "" && fourth == "") {
                 // determine if the winner has already won a higher place. Re-roll if that
                 // happens.
-                if (first != winner && second != winner && third != winner) {
+                if (first.seed != winner.seed && second.seed != winner.seed && third.seed != winner.seed) {
                     fourth = winner;
                     this.setState({
                         fourthPlace: fourth,
                     })
+
                 }
             }
         }
-        
+        console.log('first', first);
+
+        let action = {
+            type: 'SET_ORDER',
+            payload: {
+                first: first,
+                second: second,
+                third: third,
+                fourth: fourth
+            }
+        }
+        this.props.dispatch(action);
+
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
-            <button onClick = {this.runLottery}>Simulate Draft Lottery</button>
-            <p>first</p>{JSON.stringify(this.state.firstPlace)}
+                <button onClick={this.runLottery}>Simulate Draft Lottery</button>
+                <p>first</p>{JSON.stringify(this.state.firstPlace)}
                 <p>second</p>{JSON.stringify(this.state.secondPlace)}
                 <p>third</p>{JSON.stringify(this.state.thirdPlace)}
                 <p>fourth</p>{JSON.stringify(this.state.fourthPlace)}
@@ -118,4 +131,7 @@ class SimLotteryButton extends Component{
     }
 }
 
-export default SimLotteryButton;
+const mapStateToProps = reduxStore => ({
+    reduxStore
+});
+export default connect(mapStateToProps)(SimLotteryButton);

@@ -9,7 +9,7 @@ class LotteryTeams extends Component {
     }
 
     componentDidMount() {
-        let action = { type: 'ORIGINAL_ORDER' }
+        let action = { type: 'DRAFT_ORDER' }
         this.props.dispatch(action);
     }
 

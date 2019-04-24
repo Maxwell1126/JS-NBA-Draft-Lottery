@@ -17,10 +17,51 @@ const DEFAULT_ORDER =
 const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
     switch (action.type) {
         case 'SET_ORDER':
-            return {
-            };
-        case 'ORIGINAL_ORDER':
-            return DEFAULT_ORDER;
+        let bottomTwelve = [];
+        let finalOrder = [];
+        let placeCounter = 5;
+        console.log('action', action.payload);
+        
+        for(let i =0; i < DEFAULT_ORDER.length; i++){
+            console.log('default dot i', DEFAULT_ORDER[i]);
+            
+            if (DEFAULT_ORDER[i].name != (action.payload.first && action.payload.second ||
+                action.payload.third && action.payload.fourth)){
+                bottomTwelve.push(DEFAULT_ORDER[i]);
+            } else if (i.name == action.payload.first){
+                    DEFAULT_ORDER[i].place = 1;
+                finalOrder.push(DEFAULT_ORDER[i]);
+            } else if (i.name == action.payload.second){
+                DEFAULT_ORDER[i].place = 2;
+                finalOrder.push(DEFAULT_ORDER[i]);
+            } else if (i.name == action.payload.third){
+                DEFAULT_ORDER[i].place = 3;
+                finalOrder.push(DEFAULT_ORDER[i]);
+            } else if (i.name == action.payload.fourth){
+                DEFAULT_ORDER[i].place = 4;
+                finalOrder.push(DEFAULT_ORDER[i])
+            }
+        }
+        console.log('bottomTwelve', bottomTwelve);
+        console.log('finalOrder', finalOrder);
+        
+        
+            function propComparator(prop) {
+                return function (a, b) {
+                    return a[prop] - b[prop];
+                }
+            }
+        bottomTwelve = bottomTwelve.sort(propComparator('seed'));
+            for (let i = 0; i < bottomTwelve.length; i++){
+                bottomTwelve[i].place = placeCounter;
+                finalOrder.push(bottomTwelve[i]);
+                placeCounter++;
+            }
+
+            finalOrder = finalOrder.sort(propComparator('place'));
+            return finalOrder;
+        case 'DRAFT_ORDER':
+            return state;
         // case 'LOGOUT':
         //     return DEFAULT_REQUEST;
         default:
