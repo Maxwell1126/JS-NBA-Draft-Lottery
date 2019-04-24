@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LotteryTeamRow from './LotteryTeamRow';
 import SimLotteryButton from '../SimLotteryButton/SimLotteryButton';
 
 class LotteryTeams extends Component {
