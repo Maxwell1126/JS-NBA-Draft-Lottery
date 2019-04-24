@@ -22,6 +22,7 @@ class LotteryTeams extends Component {
                             <tr>
                                 <th>Place</th>
                                 <th>Team</th>
+                                <th>Original Seed</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,6 +30,7 @@ class LotteryTeams extends Component {
                                 return <tr>
                                     <td>{team.place}</td>
                                     <td>{team.name}</td>
+                                    <td>{team.seed}</td>
                                 </tr>
                             })}
                         </tbody>
