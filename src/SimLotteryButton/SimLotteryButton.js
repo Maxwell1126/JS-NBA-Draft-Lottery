@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-let first = "";
-let second = "";
-let third = "";
-let fourth = "";
+
 class SimLotteryButton extends Component {
     constructor(props) {
         super(props)
     }
 
     runLottery = (event) => {
-
+        let first = "";
+        let second = "";
+        let third = "";
+        let fourth = "";
         while (fourth == "") {
             let winner = {};
             let winningNumber = (Math.floor(Math.random() * 1000) + 1);
@@ -91,10 +91,6 @@ class SimLotteryButton extends Component {
         return (
             <div>
                 <button onClick={this.runLottery}>Simulate Draft Lottery</button>
-                <p>first</p>{JSON.stringify(first)}
-                <p>second</p>{JSON.stringify(second)}
-                <p>third</p>{JSON.stringify(third)}
-                <p>fourth</p>{JSON.stringify(fourth)}
             </div>
         )
     }

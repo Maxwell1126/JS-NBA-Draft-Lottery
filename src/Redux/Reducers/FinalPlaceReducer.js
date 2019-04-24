@@ -25,19 +25,19 @@ const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
         for(let i =0; i < DEFAULT_ORDER.length; i++){
             console.log('default dot i', DEFAULT_ORDER[i]);
             
-            if (DEFAULT_ORDER[i].name != (action.payload.first && action.payload.second ||
-                action.payload.third && action.payload.fourth)){
+            if (DEFAULT_ORDER[i].seed != action.payload.first.seed && DEFAULT_ORDER[i].seed != action.payload.second.seed &&
+                DEFAULT_ORDER[i].seed != action.payload.third.seed && DEFAULT_ORDER[i].seed != action.payload.fourth.seed){
                 bottomTwelve.push(DEFAULT_ORDER[i]);
-            } else if (i.name == action.payload.first){
+            } else if (DEFAULT_ORDER[i].seed == action.payload.first.seed){
                     DEFAULT_ORDER[i].place = 1;
                 finalOrder.push(DEFAULT_ORDER[i]);
-            } else if (i.name == action.payload.second){
+            } else if (DEFAULT_ORDER[i].seed == action.payload.second.seed){
                 DEFAULT_ORDER[i].place = 2;
                 finalOrder.push(DEFAULT_ORDER[i]);
-            } else if (i.name == action.payload.third){
+            } else if (DEFAULT_ORDER[i].seed == action.payload.third.seed){
                 DEFAULT_ORDER[i].place = 3;
                 finalOrder.push(DEFAULT_ORDER[i]);
-            } else if (i.name == action.payload.fourth){
+            } else if (DEFAULT_ORDER[i].seed == action.payload.fourth.seed){
                 DEFAULT_ORDER[i].place = 4;
                 finalOrder.push(DEFAULT_ORDER[i])
             }
@@ -62,8 +62,6 @@ const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
             return finalOrder;
         case 'DRAFT_ORDER':
             return state;
-        // case 'LOGOUT':
-        //     return DEFAULT_REQUEST;
         default:
             return state;
     }
