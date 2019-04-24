@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SimLotteryButton from '../SimLotteryButton/SimLotteryButton';
-
+import './LotteryTeams.css';
 class LotteryTeams extends Component {
     constructor(props) {
         super(props)
@@ -14,30 +13,27 @@ class LotteryTeams extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Place</th>
-                                <th>Team</th>
-                                <th>Original Seed</th>
-                                <th>Jumped/Fell</th>
+            <div className="tableContainer">
+                <table >
+                    <thead>
+                        <tr>
+                            <th>Place</th>
+                            <th>Team</th>
+                            <th>Original Seed</th>
+                            <th>Jumped/Fell</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.reduxStore.draftLotteryOrder.map(team => {
+                            return <tr>
+                                <td>{team.place}</td>
+                                <td>{team.name}</td>
+                                <td>{team.seed}</td>
+                                <td>{(team.place - team.seed) * (-1)}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {this.props.reduxStore.draftLotteryOrder.map(team => {
-                                return <tr>
-                                    <td>{team.place}</td>
-                                    <td>{team.name}</td>
-                                    <td>{team.seed}</td>
-                                    <td>{(team.place - team.seed) * (-1)}</td>
-                                </tr>
-                            })}
-                        </tbody>
-                    </table>
-                </div>
-                <SimLotteryButton />
+                        })}
+                    </tbody>
+                </table>
             </div>
         )
     }

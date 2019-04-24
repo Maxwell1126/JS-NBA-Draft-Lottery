@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LotteryTeams from './LotteryTeams/LotteryTeams.js';
+import SimLotteryButton from './SimLotteryButton/SimLotteryButton.js';
 import Header from './Header/Header.js';
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <div className="App">
         <Header/>
         <LotteryTeams />
+        <SimLotteryButton />
       </div>
     );
   }
