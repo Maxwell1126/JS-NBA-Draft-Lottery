@@ -28,7 +28,7 @@ class LotteryTeams extends Component {
             } else if ((team.place - team.seed) * (-1) < 0) {
                 jumpedFell = <p className="place"><b>{team.place}</b><b className="white">123</b><b className="red">  (-{(team.place - team.seed) * 1})</b></p>
             }else{
-                jumpedFell = <b>{team.place} </b>;
+                jumpedFell = <p className="place"><b>{team.place}</b><b className="white">(+0)</b></p>;
             }
             
             return <TableRow>

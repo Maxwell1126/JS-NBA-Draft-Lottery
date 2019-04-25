@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './index.css';
 import LotteryTeams from './LotteryTeams/LotteryTeams.js';
 import SimLotteryButton from './SimLotteryButton/SimLotteryButton.js';
 import Header from './Header/Header.js';
@@ -9,7 +10,7 @@ class App extends Component {
       <div className="App">
         <Header/>
         <SimLotteryButton />
-        <LotteryTeams />       
+        <LotteryTeams />   
       </div>
     );
   }

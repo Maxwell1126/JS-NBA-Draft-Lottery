@@ -1,7 +1,17 @@
 .App {
   text-align: center;
- 
+ /* background-image: url('/public/Bball_Court_Right.png'); */
 }
-/* #react-root{
- width: 100%;
+/* .courtLeft {
+  background-image: url('/public/Bball_Court_Left.png');
+  background-size: contain;
+  background-position:left;
+  background-repeat: no-repeat;
+} */
+/* .courtRight {
+  background-image: url('/public/Bball_Court_Right.png');
+  background-size: cover;
+  height:100%;
+  background-position:right;
+  background-repeat: no-repeat;
 } */
