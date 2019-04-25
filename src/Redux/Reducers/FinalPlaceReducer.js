@@ -59,6 +59,21 @@ const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
             }
 
             finalOrder = finalOrder.sort(propComparator('place'));
+            for (let i = 0; i < finalOrder.length; i++) {
+                if (finalOrder[i].seed == 9 && finalOrder[i].place < 5){
+                    finalOrder[i].name = "Dallas";
+                } else if (finalOrder[i].seed == 9 && finalOrder[i].place > 4){
+                    finalOrder[i].name = "Atlanta";
+                } else if (finalOrder[i].seed == 8 && finalOrder[i].place > 8){
+                    finalOrder[i].name = "Boston";
+                } else if (finalOrder[i].seed == 8 && finalOrder[i].place <= 8){
+                    finalOrder[i].name = "Memphis";
+                } else if (finalOrder[i].seed == 14 && finalOrder[i].place == 1){
+                    finalOrder[i].name = "Sacramento";
+                } else if (finalOrder[i].seed == 14 && finalOrder[i].place != 1){
+                    finalOrder[i].name = "Boston";
+                }
+            }
             return finalOrder;
         case 'DRAFT_ORDER':
             return state;

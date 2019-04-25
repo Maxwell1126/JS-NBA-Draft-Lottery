@@ -34,19 +34,8 @@ class LotteryTeams extends Component {
             return <TableRow>
                 <TableCell>{jumpedFell}</TableCell>
                 <TableCell>{team.name}</TableCell>
-                {/* <TableCell>{team.seed}</TableCell> */}
-                {/* <TableCell>{(team.place - team.seed) * (-1)}</TableCell> */}
             </TableRow>
         })
-        // this.props.reduxStore.draftLotteryOrder.map(team => {
-        //     if ((team.place - team.seed) * (-1) > 0) {
-
-        //     } else if ((team.place - team.seed) * (-1) < 0) {
-
-        //     } else {
-
-        //     }
-        // })
 
         return (
             <div className="tableContainer">
@@ -62,8 +51,6 @@ class LotteryTeams extends Component {
                         <TableRow>
                             <TableCell>Pick</TableCell>
                             <TableCell>Team</TableCell>
-                            {/* <TableCell>Original Seed</TableCell> */}
-                            {/* <TableCell>Jumped/Fell</TableCell> */}
                         </TableRow>
                     </TableHead>
                     <TableBody>
