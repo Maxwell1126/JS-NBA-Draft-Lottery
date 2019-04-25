@@ -24,9 +24,9 @@ class LotteryTeams extends Component {
        let tableContent = this.props.reduxStore.draftLotteryOrder.map(team => {
            let jumpedFell = <b>{team.place} </b>;
             if ((team.place - team.seed) * (-1) > 0) {
-                jumpedFell = <p className="place"><b>{team.place}</b><b className="white">123</b><b className="green"> {(team.place - team.seed) * (-1)}</b></p>
+                jumpedFell = <p className="place"><b>{team.place}</b><b className="white">123</b><b className="green"> (+{(team.place - team.seed) * (-1)})</b></p>
             } else if ((team.place - team.seed) * (-1) < 0) {
-                jumpedFell = <p className="place"><b>{team.place}</b><b className="white">123</b><b className="red">  {(team.place - team.seed) * 1}</b></p>
+                jumpedFell = <p className="place"><b>{team.place}</b><b className="white">123</b><b className="red">  (-{(team.place - team.seed) * 1})</b></p>
             }else{
                 jumpedFell = <b>{team.place} </b>;
             }
