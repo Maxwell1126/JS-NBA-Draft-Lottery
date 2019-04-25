@@ -1,5 +1,4 @@
 .tableContainer {
-
 display: flex;
 align-items: center;
 justify-content: center;
@@ -8,6 +7,18 @@ padding-bottom: 10px;
 .lottoTable{
     max-width: 500px;
     align-items: center;
-    justify-content: center;
-    display: flex;
+    display: center;
+}
+.red{
+    color:#EF3636;
+}
+.green{
+    color:#78BE20;
+}
+.white{
+    color: white;
+}
+
+.place{
+    justify-content: space-between;
 }
