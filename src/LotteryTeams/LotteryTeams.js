@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
+// import SimLotteryButton from '../SimLotteryButton/SimLotteryButton.js';
 
 class LotteryTeams extends Component {
     constructor(props) {
@@ -27,13 +28,14 @@ class LotteryTeams extends Component {
                     justify="center"
                     alignItems="center"
                 >
+                {/* <SimLotteryButton /> */}
                 <Table item xs className="lottoTable">
                     <TableHead>
                         <TableRow>
                             <TableCell>Pick</TableCell>
                             <TableCell>Team</TableCell>
-                            <TableCell>Original Seed</TableCell>
-                            <TableCell>Jumped/Fell</TableCell>
+                            {/* <TableCell>Original Seed</TableCell> */}
+                            {/* <TableCell>Jumped/Fell</TableCell> */}
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -41,8 +43,8 @@ class LotteryTeams extends Component {
                             return <TableRow>
                                 <TableCell><b>{team.place}</b></TableCell>
                                 <TableCell>{team.name}</TableCell>
-                                <TableCell>{team.seed}</TableCell>
-                                <TableCell>{(team.place - team.seed) * (-1)}</TableCell>
+                                {/* <TableCell>{team.seed}</TableCell> */}
+                                {/* <TableCell>{(team.place - team.seed) * (-1)}</TableCell> */}
                             </TableRow>
                         })}
                     </TableBody>

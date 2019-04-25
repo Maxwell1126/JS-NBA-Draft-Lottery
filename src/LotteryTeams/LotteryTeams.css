@@ -7,4 +7,7 @@ padding-bottom: 10px;
 }
 .lottoTable{
     max-width: 500px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }

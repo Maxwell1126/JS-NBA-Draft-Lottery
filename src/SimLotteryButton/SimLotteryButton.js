@@ -58,7 +58,6 @@ class SimLotteryButton extends Component {
                 if (first.seed != winner.seed) {
                     second = winner;
                 }
-
                 // determine third place.
             } else if (first != "" && second != "" && third == "") {
                 // determine if the winner has already won a higher place. Re-roll if that
@@ -66,7 +65,6 @@ class SimLotteryButton extends Component {
                 if (first.seed != winner.seed && second.seed != winner.seed) {
                     third = winner;
                 }
-
                 // determine fourth place.
             } else if (first != "" && second != "" && third != "" && fourth == "") {
                 // determine if the winner has already won a higher place. Re-roll if that
@@ -91,9 +89,7 @@ class SimLotteryButton extends Component {
 
     render() {
         return (
-            <div>
-                <Button variant="outlined" onClick={this.runLottery}>Simulate Draft Lottery</Button>
-            </div>
+            <Button variant="outlined" onClick={this.runLottery}>Simulate Draft Lottery</Button>
         )
     }
 }
