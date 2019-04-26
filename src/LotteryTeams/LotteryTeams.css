@@ -17,13 +17,20 @@ padding-bottom: 10px;
     color:#78BE20;
 }
 .white{
-    color: white;
+    color:white; 
+    opacity: 1;
 }
 
 .place{
-    
     justify-content: space-between;
 }
+
 .tableCell{
-    justify-content: space-between;
+    white-space: nowrap;
+    max-height: 0.2rem !important;
+    max-width: 25vw;
+
+}
+.simButton{
+    padding-top: 10px;
 }

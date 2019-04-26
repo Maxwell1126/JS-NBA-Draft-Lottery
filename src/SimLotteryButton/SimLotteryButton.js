@@ -89,7 +89,7 @@ class SimLotteryButton extends Component {
 
     render() {
         return (
-            <Button variant="outlined" onClick={this.runLottery}>Simulate Draft Lottery</Button>
+            <Button  variant="outlined" onClick={this.runLottery}>Simulate Draft Lottery</Button>
         )
     }
 }

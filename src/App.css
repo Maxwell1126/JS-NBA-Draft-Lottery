@@ -12,19 +12,34 @@
 .container{
   margin-top:0px;
 }
+
+@media only screen and (max-width: 700px) {
+  .courtRight { 
+    display:none;
+  }
+  .courtLeft {
+    display:none;
+  }
+}
+
+.courtRight { 
+  max-width:480;
+  min-height: 793px;
+  background-image: url('./Images/Court_Right.png');
+  background-position:right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .courtLeft {
   max-width:480;
-  min-height: 1000px;
+  min-height: 793px;
   background-image: url('./Images/Court_Left.png');
   background-position:left;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.courtRight { 
-  max-width:480;
-  min-height: 1000px;
-  background-image: url('./Images/Court_Right.png');
-  background-position:right;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+.lottoTable{
+
 }

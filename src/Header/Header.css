@@ -1,6 +1,7 @@
 .head {
     padding-top:10px;
     background-color: orange;
+    background-image: linear-gradient(orange, white);
     font-family: Rockwell;
     text-align: center;
     padding-bottom: 5px;

@@ -24,16 +24,16 @@ class LotteryTeams extends Component {
        let tableContent = this.props.reduxStore.draftLotteryOrder.map(team => {
            let jumpedFell = <b>{team.place} </b>;
             if ((team.place - team.seed) * (-1) > 0) {
-                jumpedFell = <p className="place"><b>{team.place}</b><b className="white">123</b><b className="green"> (+{(team.place - team.seed) * (-1)})</b></p>
+                jumpedFell = <b className="green"> (+{(team.place - team.seed) * (-1)})</b>
             } else if ((team.place - team.seed) * (-1) < 0) {
-                jumpedFell = <p className="place"><b>{team.place}</b><b className="white">123</b><b className="red">  (-{(team.place - team.seed) * 1})</b></p>
+                jumpedFell = <b className="red"> (-{(team.place - team.seed) * 1})</b>
             }else{
-                jumpedFell = <p className="place"><b>{team.place}</b><b className="white">(+0)</b></p>;
+                jumpedFell = "";
             }
             
             return <TableRow>
-                <TableCell className="tableCell">{jumpedFell}</TableCell>
-                <TableCell>{team.name}</TableCell>
+                <TableCell className= "tableCell"><b>{team.place}</b>{jumpedFell}</TableCell>
+                <TableCell className="tableCell">{team.name}</TableCell>
             </TableRow>
         })
 
@@ -45,12 +45,14 @@ class LotteryTeams extends Component {
                     justify="center"
                     alignItems="center"
                 >
+                <Grid item xs className = "simButton">
                 <SimLotteryButton />
+                </Grid>
                 <Table item xs className="lottoTable">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Pick</TableCell>
-                            <TableCell>Team</TableCell>
+                            <TableCell><b>Pick</b></TableCell>
+                            <TableCell><b>Team</b></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

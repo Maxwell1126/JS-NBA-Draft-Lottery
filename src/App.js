@@ -20,7 +20,7 @@ class App extends Component {
         <div className="courtLeft"></div>
         </Grid>
         {/* <SimLotteryButton /> */}
-            <Grid item xs>
+            <Grid item xs className = "lottoTable">
         <LotteryTeams /> 
               </Grid>
               <Grid item xs>
