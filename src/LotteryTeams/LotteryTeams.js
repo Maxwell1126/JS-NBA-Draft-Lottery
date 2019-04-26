@@ -7,7 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
-// import SimLotteryButton from '../SimLotteryButton/SimLotteryButton.js';
+import SimLotteryButton from '../SimLotteryButton/SimLotteryButton.js';
 
 class LotteryTeams extends Component {
     constructor(props) {
@@ -32,20 +32,20 @@ class LotteryTeams extends Component {
             }
             
             return <TableRow>
-                <TableCell>{jumpedFell}</TableCell>
+                <TableCell className="tableCell">{jumpedFell}</TableCell>
                 <TableCell>{team.name}</TableCell>
             </TableRow>
         })
 
         return (
-            <div className="tableContainer">
-                <Grid
+            
+                <Grid className="tableContainer"
                     container xs
-                    direction="row"
+                    direction="column"
                     justify="center"
                     alignItems="center"
                 >
-                {/* <SimLotteryButton /> */}
+                <SimLotteryButton />
                 <Table item xs className="lottoTable">
                     <TableHead>
                         <TableRow>
@@ -58,7 +58,7 @@ class LotteryTeams extends Component {
                     </TableBody>
                 </Table>
                 </Grid>
-            </div>
+           
         )
     }
 }
