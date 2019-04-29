@@ -1,8 +1,17 @@
 .head {
     padding-top:10px;
-    background-color: orange;
-    background-image: linear-gradient(orange, white);
+    background-image: linear-gradient(#dd9b4f, white);
     font-family: Rockwell;
+    text-align: center;
+    padding-bottom: 5px;
+    margin-bottom: 0%;
+}
+
+.wolves{
+     padding-top:10px;
+    background-image: linear-gradient(-90deg, #0c2340,#236192, #78be20);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:white;
     text-align: center;
     padding-bottom: 5px;
     margin-bottom: 0%;
