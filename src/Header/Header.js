@@ -8,16 +8,16 @@ class Header extends Component {
     render() {
         let headerStyle = "head";
         this.props.reduxStore.draftLotteryOrder.map(team => {
-            if (team.name == "Minnesota" && (team.place == 1 || team.place == 2)){
-                return headerStyle = "wolves";
-            } else if (team.name != "Minnesota" && team.place == (1 || 2)){
-               return  headerStyle = "head";
-            }
+            if ((team.name == "Minnesota") && (team.place == 1 || team.place == 2 || team.place == 3
+                || team.place == 4)){
+                headerStyle= "wolves";
+                return headerStyle;
+            } 
         })
         return(
-            <header className = {headerStyle}>
+            <header className={headerStyle}>
                 <h1>Draft Lottery Simulator</h1>
-            </header>  
+            </header>
         )
     }
 }
