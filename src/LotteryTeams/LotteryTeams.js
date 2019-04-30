@@ -20,9 +20,17 @@ class LotteryTeams extends Component {
     }
 
     render() {
-        
+        let playerImage
+        this.props.reduxStore.draftLotteryOrder.map(team => {
+            if ((team.name == "Minnesota") && (team.place == 1)){
+                    playerImage = "zionImage";
+                } 
+            else if ((team.name == "Minnesota") && (team.place == 2)){
+                    playerImage = "morantImage";
+                }
+            })
        let tableContent = this.props.reduxStore.draftLotteryOrder.map(team => {
-           let jumpedFell = <b>{team.place} </b>;
+           let jumpedFell = <h1>{team.place} </h1>;
             if ((team.place - team.seed) * (-1) > 0) {
                 jumpedFell = <b className="green"> (+{(team.place - team.seed) * (-1)})</b>
             } else if ((team.place - team.seed) * (-1) < 0) {
@@ -32,8 +40,8 @@ class LotteryTeams extends Component {
             }
             
             return <TableRow>
-                <TableCell className= "tableCell"><b>{team.place}</b>{jumpedFell}</TableCell>
-                <TableCell className="tableCell">{team.name}</TableCell>
+                <TableCell className="tableCell"><h3>{team.place}{jumpedFell}</h3></TableCell>
+                <TableCell className="tableCell"><h3>{team.name}</h3></TableCell>
             </TableRow>
         })
 
@@ -43,21 +51,21 @@ class LotteryTeams extends Component {
                     container xs
                     direction="column"
                     justify="center"
-                    alignItems="center"
-                >
+                    alignItems="center">
                 <Grid item xs className = "simButton">
                 <SimLotteryButton />
                 </Grid>
-                <Table item xs className="lottoTable">
+     
+                <Table item xs className={playerImage}>               
                     <TableHead>
                         <TableRow>
-                            <TableCell><b>Pick</b></TableCell>
-                            <TableCell><b>Team</b></TableCell>
+                            <TableCell><h3>Pick</h3></TableCell>
+                            <TableCell><h3>Team</h3></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {tableContent}
-                    </TableBody>
+                    </TableBody>                
                 </Table>
                 </Grid>
            

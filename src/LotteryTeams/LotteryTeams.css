@@ -4,8 +4,8 @@ align-items: center;
 justify-content: center;
 padding-bottom: 10px;
 
-}
-.lottoTable{
+} */
+/* .lottoTable{
     max-width: 500px;
     align-items: center;
     display: center;
@@ -14,7 +14,7 @@ padding-bottom: 10px;
     color:#EF3636;
 }
 .green{
-    color:#78BE20;
+    color:green;
 }
 .white{
     color:white; 
@@ -27,10 +27,33 @@ padding-bottom: 10px;
 
 .tableCell{
     white-space: nowrap;
-    max-height: 0.2rem !important;
-    max-width: 25vw;
+    /* max-height: 0.2rem !important; */
+    max-width: 50vw;
 
 }
 .simButton{
     padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.zionImage{
+
+background-image: url('../Images/zionWolves.png');
+background-size: contain;
+background-repeat: no-repeat;
+background-position: top;
+padding-top: 10px;
+
+}
+
+.morantImage{
+background-image: url('../Images/ja_morant.jpg');
+background-size: contain;
+background-repeat: no-repeat;
+background-position: top;
+
+}
+
+.lottoTable{
+    opacity:1;
 }

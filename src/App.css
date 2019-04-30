@@ -29,7 +29,7 @@
 
 .courtRight { 
   max-width:480;
-  min-height: 793px;
+  min-height: 887px;
   background-image: url('./Images/Court_Right.png');
   background-position:right;
   background-repeat: no-repeat;
@@ -38,7 +38,7 @@
 
 .courtRight::after {
   max-width:480;
-  min-height: 793px;
+  min-height: 887px;
   display: block;
   position: relative;
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0, #fff 100%);
@@ -49,7 +49,7 @@
 
 .courtLeft {
   max-width:480;
-  min-height: 793px;
+  min-height: 887px;
   background-image: url('./Images/Court_Left.png');
   background-position:left;
   background-repeat: no-repeat;
@@ -58,7 +58,7 @@
 
 .courtLeft::after {
   max-width:480;
-  min-height: 793px;
+  min-height: 887px;
   display: block;
   position: relative;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #fff 100%);
@@ -69,7 +69,7 @@
 
 .karlSmirk{
   max-width:480;
-  min-height: 793px;
+  min-height: 857px;
   background-image: url('./Images/karlSmirk.jpg'),url('./Images/old_wolves.png');
   background-position:right bottom, right top;
   background-repeat: no-repeat, no-repeat;
@@ -79,15 +79,13 @@
 
 .karlBBQ{
   max-width:480;
-  min-height: 793px;
+  min-height: 857px;
   background-image: url('./Images/karlBBQ.jpg'),url('./Images/newWolves.png');
   background-position:right bottom, right top;
   background-repeat: no-repeat, no-repeat;
   background-size: contain, 600px;
-  padding: 10px;
+  padding: 15px;
   margin-top:10px;
 }
 
-.lottoTable{
 
-}
