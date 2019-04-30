@@ -70,18 +70,19 @@
 .karlSmirk{
   max-width:480;
   min-height: 857px;
-  background-image: url('./Images/karlSmirk.jpg'),url('./Images/old_wolves.png');
+  background-image: url('./Images/karlSmirk.jpg'),url('./Images/oldWolves.png');
   background-position:bottom, right top;
   background-repeat: no-repeat, no-repeat;
   background-size: contain, contain;
-  padding: 20px;
+  padding: 15px;
+  margin-top:10px;
 
 }
 
 .karlBBQ{
   max-width:480;
   min-height: 857px;
-  background:url('./Images/karlBBQ.jpg'),url('./Images/newWolves.png');
+  background:url('./Images/karlBBQ.jpg'),url('./Images/new_wolves.png');
   background-position:right bottom, right top;
   background-repeat: no-repeat, no-repeat;
   background-size: contain, contain;
