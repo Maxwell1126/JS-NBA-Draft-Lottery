@@ -25,6 +25,12 @@
   .karlSmirk{
     display: none;
   }
+  .oldWolves{
+    display: none;
+  }
+  .newWolves{
+    display: none;
+  }
 }
 
 .courtRight { 
@@ -69,17 +75,35 @@
 
 .karlSmirk{
   max-width:480;
-  min-height: 857px;
-  background-image: url('./Images/karlSmirk.jpg'),url('./Images/oldWolves.png');
-  background-position:bottom, right top;
-  background-repeat: no-repeat, no-repeat;
-  background-size: contain, contain;
-  padding: 15px;
+  min-height: 428px;
+  background-image: url('./Images/karlSmirk.jpg');
+  background-position:bottom;
+  background-repeat:no-repeat;
+  background-size:contain;
+  padding-top: 15px;
   margin-top:10px;
-
 }
 
+.oldWolves{
+  max-width:480;
+  min-height: 428px;
+  background-image: url('./Images/oldWolves.png');
+  background-position:center;
+  background-size: contain;
+  background-repeat:no-repeat;
+  padding:8px;
+}
 .karlBBQ{
+  max-width:480;
+  min-height: 428px;
+  background-image: url('./Images/karlBBQ.jpg');
+  background-position:bottom;
+  background-repeat:no-repeat;
+  background-size:contain;
+  padding-top: 15px;
+  margin-top:10px;
+}
+/* .karlBBQ{
   max-width:480;
   min-height: 857px;
   background:url('./Images/karlBBQ.jpg'),url('./Images/new_wolves.png');
@@ -88,7 +112,14 @@
   background-size: contain, contain;
   padding: 15px;
   margin-top:10px;
+} */
 
+.newWolves{
+  max-width:480;
+  min-height: 428px;
+  background-image: url('./Images/new_wolves.png');
+  background-position:center;
+  background-size: contain;
+  background-repeat:no-repeat;
+  padding:8px;
 }
-
-
