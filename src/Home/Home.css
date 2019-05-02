@@ -36,7 +36,7 @@
 .courtRight { 
   max-width:480;
   min-height: 897px;
-  background-image: url('./Images/Court_Right.png');
+  background-image: url('../Images/Court_Right.png');
   background-position:right;
   background-repeat: no-repeat;
   background-size: cover;
@@ -56,7 +56,7 @@
 .courtLeft {
   max-width:480;
   min-height: 897px;
-  background-image: url('./Images/Court_Left.png');
+  background-image: url('../Images/Court_Left.png');
   background-position:left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -76,7 +76,7 @@
 .karlSmirk{
   max-width:480;
   min-height: 428px;
-  background-image: url('./Images/karlSmirk.jpg');
+  background-image: url('../Images/karlSmirk.jpg');
   background-position:bottom;
   background-repeat:no-repeat;
   background-size:contain;
@@ -87,7 +87,7 @@
 .oldWolves{
   max-width:480;
   min-height: 428px;
-  background-image: url('./Images/oldWolves.png');
+  background-image: url('../Images/oldWolves.png');
   background-position:center;
   background-size: contain;
   background-repeat:no-repeat;
@@ -96,7 +96,7 @@
 .karlBBQ{
   max-width:480;
   min-height: 428px;
-  background-image: url('./Images/karlBBQ.jpg');
+  background-image: url('../Images/karlBBQ.jpg');
   background-position:bottom;
   background-repeat:no-repeat;
   background-size:contain;
@@ -107,7 +107,7 @@
 .newWolves{
   max-width:480;
   min-height: 428px;
-  background-image: url('./Images/new_wolves.png');
+  background-image: url('../Images/new_wolves.png');
   background-position:center;
   background-size: contain;
   background-repeat:no-repeat;
