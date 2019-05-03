@@ -1,3 +1,11 @@
+.nav{
+    padding-right: 10px;
+}
+
+.wolves{
+    padding-right: 10px;
+}
+
 .nav:link{
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 color:black;

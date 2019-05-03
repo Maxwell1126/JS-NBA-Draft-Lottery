@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../Header/Header.js';
 import Grid from '@material-ui/core/Grid';
 import StatTable from './StatTable.js';
 class Stats extends Component {
@@ -23,7 +22,6 @@ class Stats extends Component {
         })
         return (
             <div>
-                <Header />
                 <Grid className="container"
                     container
                     direction="row"

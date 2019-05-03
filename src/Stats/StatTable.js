@@ -18,6 +18,12 @@ class StatsTable extends Component {
     }
 
     render() {
+        let tableContent = this.props.reduxStore.draftLotteryOrder.map(team => {
+            return <TableRow >
+                <TableCell className="tableCell"><h3>{team.name}</h3></TableCell>
+                <TableCell className="tableCell"><h3></h3></TableCell>
+            </TableRow>
+        })
 
         return (
 
@@ -34,10 +40,7 @@ class StatsTable extends Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <TableRow >
-                            <TableCell className="tableCell"><h3>{team.name}</h3></TableCell>
-                            <TableCell className="tableCell"><h3></h3></TableCell>
-                        </TableRow>
+                        {tableContent}
                     </TableBody>
                 </Table>
             </Grid>

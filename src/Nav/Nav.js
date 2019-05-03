@@ -17,8 +17,11 @@ class Nav extends Component {
         })
         return (
             <div >
-                <Link className={navStyle} to="/home">
+                <Link className = {navStyle} to = "/home">
                     Home
+                </Link>
+                <Link className = {navStyle} to = "/stats">
+                    Stats
                 </Link>
             </div>
         )
