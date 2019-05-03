@@ -77,6 +77,8 @@ const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
             return finalOrder;
         case 'DRAFT_ORDER':
             return state;
+        case 'ORIGINAL_ORDER' :
+            return DEFAULT_ORDER;
         default:
             return state;
     }

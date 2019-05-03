@@ -13,14 +13,14 @@ class StatsTable extends Component {
     }
 
     componentDidMount() {
-        let action = { type: 'DRAFT_ORDER' }
+        let action = { type: 'ORIGINAL_ORDER' }
         this.props.dispatch(action);
     }
 
     render() {
         let tableContent = this.props.reduxStore.draftLotteryOrder.map(team => {
             return <TableRow >
-                <TableCell className="tableCell"><h3>{team.name}</h3></TableCell>
+                <TableCell className="tableCell"><h3>{team.seed}. {team.name}</h3></TableCell>
                 <TableCell className="tableCell"><h3></h3></TableCell>
             </TableRow>
         })
