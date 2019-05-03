@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Header.css';
+import Nav from '../Nav/Nav';
 class Header extends Component {
     constructor(props){
         super(props)
@@ -17,6 +18,7 @@ class Header extends Component {
         return(
             <header className={headerStyle}>
                 <h1>Draft Lottery Simulator</h1>
+                <Nav />
             </header>
         )
     }

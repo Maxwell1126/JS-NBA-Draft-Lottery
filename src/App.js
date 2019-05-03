@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Redirect, Switch,} from 'react-router-dom';
 import Home from './Home/Home.js';
+
 import './index.css';
 class App extends Component {
   constructor(){
@@ -11,6 +12,7 @@ class App extends Component {
     return (
       <div >
         <Router>
+          
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route 
