@@ -24,7 +24,7 @@ class Home extends Component {
             }
         })
         return (
-            <div >
+            <div>
                 <Header />
                 <Grid className="container"
                     container

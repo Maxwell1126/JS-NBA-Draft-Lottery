@@ -5,6 +5,7 @@
     text-align: center;
     padding-bottom: 5px;
     margin-bottom: 0%;
+    height:100px;
 }
 
 .wolves{
@@ -15,4 +16,5 @@
     text-align: center;
     padding-bottom: 5px;
     margin-bottom: 0%;
+    /* height:100px; */
 }
