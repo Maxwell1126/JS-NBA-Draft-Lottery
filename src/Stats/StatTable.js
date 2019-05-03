@@ -6,6 +6,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
+import StatOption from './StatOption.js';
+import '../LotteryTeams/LotteryTeams.css'
 
 class StatsTable extends Component {
     constructor(props) {
@@ -32,6 +34,9 @@ class StatsTable extends Component {
                 direction="column"
                 justify="center"
                 alignItems="center">
+                <Grid item xs className="simButton">
+                    <StatOption />
+                </Grid>
                 <Table item xs >
                     <TableHead>
                         <TableRow>

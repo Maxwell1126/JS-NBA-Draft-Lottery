@@ -40,8 +40,8 @@ class LotteryTeams extends Component {
             }
             
            return <TableRow >
-                <TableCell className="tableCell"><h3>{team.place}{jumpedFell}</h3></TableCell>
-                <TableCell className="tableCell"><h3>{team.name}</h3></TableCell>
+               <TableCell className="tableCell"><h3>{team.name}</h3></TableCell>
+               <TableCell className="tableCell"><h3>{team.place}{jumpedFell}</h3></TableCell>
             </TableRow>
         })
 
@@ -59,8 +59,8 @@ class LotteryTeams extends Component {
                 <Table item xs >               
                     <TableHead>
                         <TableRow>
-                            <TableCell><h3>Pick</h3></TableCell>
                             <TableCell><h3>Team</h3></TableCell>
+                            <TableCell><h3>Pick</h3></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody className={playerImage}>
