@@ -8,6 +8,7 @@ class Home extends Component {
     constructor() {
         super()
     }
+    
     render() {
         let leftImage = "courtLeft";
         let rightImage = "courtRight";
