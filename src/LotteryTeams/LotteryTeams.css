@@ -1,29 +1,18 @@
-/* .tableContainer {
+.tableContainer {
 display: flex;
 align-items: center;
 justify-content: center;
-padding-bottom: 10px;
+width: width 30%;
 
-} */
-/* .lottoTable{
-    max-width: 500px;
-    align-items: center;
-    display: center;
-} */
+}
 .red{
     color:#EF3636;
 }
 .green{
     color:green;
 }
-.white{
-    color:white; 
-    opacity: 1;
-}
 
-.place{
-    justify-content: space-between;
-}
+
 
 .tableCell{
     white-space: nowrap;
@@ -52,8 +41,4 @@ background-size: contain;
 background-repeat: no-repeat;
 background-position: top;
 
-}
-
-.lottoTable{
-    opacity:1;
 }
