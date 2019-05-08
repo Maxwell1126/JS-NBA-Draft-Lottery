@@ -1,15 +1,13 @@
 
-const express = require('./node_modules/express');
-require('./node_modules/dotenv').config();
+const express = require('express');
+require('dotenv').config();
 
 const app = express();
-const bodyParser = require('./node_modules/body-parser');
-const sessionMiddleware = require('./modules/session-middleware');
-
-
+const bodyParser = require('body-parser');
+const sessionMiddleware = require('session-middleware');
 
 // Route includes
-const userRouter = require('./routes/user.router');
+// const userRouter = require('./routes/user.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -19,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(sessionMiddleware);
 
 /* Routes */
-app.use('/api/user', userRouter);
+// app.use('/api/user', userRouter);
 
 // Serve static files
 app.use(express.static('build'));

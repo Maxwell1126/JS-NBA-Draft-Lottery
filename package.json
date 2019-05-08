@@ -20,9 +20,9 @@
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^1.0.2"
+    "redux-saga": "^1.0.2",
+    "session-middleware": "^1.0.2"
   },
-
   "scripts": {
     "start": "node Server/Server.js",
     "client": "react-scripts start",
@@ -31,21 +31,17 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-
   "devDependencies": {
     "nodemon": "^1.17.2"
   },
-
   "eslintConfig": {
     "extends": "react-app"
   },
-  
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
   ],
-
   "heroku-run-build-script": true
 }
