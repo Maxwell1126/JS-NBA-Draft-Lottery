@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const sessionMiddleware = require('session-middleware');
 
 // Route includes
-// const userRouter = require('./routes/user.router');
+const statsRouter = require('./routes/stats.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(sessionMiddleware);
 
 /* Routes */
-// app.use('/api/user', userRouter);
+app.use('/api/stats', statsRouter);
 
 // Serve static files
 app.use(express.static('build'));
