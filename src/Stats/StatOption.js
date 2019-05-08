@@ -10,30 +10,31 @@ class StatOption extends Component {
     }
 
     componentDidMount() {
-        this.getStatsNames();
+        let action = { type: 'GET_STATS' }
+        this.props.dispatch(action);
     }
 
-    getStatsNames = () => {
-        axios({
-            method: 'GET',
-            url: '/api/stats',
-        }).then((response) => {
-            console.log('response',response);
+    // getStatsNames = () => {
+    //     axios({
+    //         method: 'GET',
+    //         url: '/api/stats',
+    //     }).then((response) => {
+    //         console.log('response',response);
             
-            this.setState({
-                stats: response.data
-            })
-        }).catch((error) => {
-            console.log('error', error);
+    //         this.setState({
+    //             stats: response.data
+    //         })
+    //     }).catch((error) => {
+    //         console.log('error', error);
             
-        })
-    }
+    //     })
+    // }
 
     render() {
         return (
                 <select>
                     <option value='' disabled selected > Select a Stat</option>
-                    {this.state.stats.map(stat =>{
+                {this.props.reduxStore.stats.map(stat =>{
                         return <option>{stat.name}</option>
                     })}
                 </select>

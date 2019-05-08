@@ -5,6 +5,9 @@ const stats = (state = DEFAULT_ARRAY, action) => {
         case 'SET_STATS':
             state = action.payload;
             return state;
+        default:
+            return state;
+        
     }
 };
 
