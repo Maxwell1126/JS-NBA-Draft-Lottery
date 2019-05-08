@@ -4,17 +4,13 @@ require('dotenv').config();
 
 const app = express();
 const bodyParser = require('body-parser');
-const sessionMiddleware = require('session-middleware');
 
 // Route includes
-const statsRouter = require('./routes/stats.router');
+const statsRouter = require('./Routes/stats.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// Passport Session Configuration //
-app.use(sessionMiddleware);
 
 /* Routes */
 app.use('/api/stats', statsRouter);
