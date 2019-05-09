@@ -3,36 +3,32 @@ display: flex;
 align-items: center;
 justify-content: center;
 width: width 30%;
-
 }
+
 .red{
     color:#EF3636;
 }
+
 .green{
     color:green;
 }
 
-
-
 .tableCell{
     white-space: nowrap;
-    /* max-height: 0.2rem !important; */
     max-width: 50vw;
-
 }
+
 .simButton{
-    padding-top: 10px;
+    padding-top: 13px;
     padding-bottom: 10px;
 }
 
 .zionImage{
-
 background-image: url('../Images/zionWolves.png');
 background-size: contain;
 background-repeat: no-repeat;
 background-position: top;
 padding-top: 10px;
-
 }
 
 .morantImage{
@@ -40,5 +36,4 @@ background-image: url('../Images/ja_morant.jpg');
 background-size: contain;
 background-repeat: no-repeat;
 background-position: top;
-
 }
