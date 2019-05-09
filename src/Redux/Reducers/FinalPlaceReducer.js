@@ -85,8 +85,7 @@ const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
             }
             
             draftOrder = finalOrder;
-            let simulation = { type: 'ADD_SIMULATION', payload: draftOrder }
-            this.props.dispatch(simulation);
+            
             return draftOrder;
         case 'DRAFT_ORDER':
             return draftOrder;

@@ -9,6 +9,21 @@ class SimLotteryButton extends Component {
     }
 
     runLottery = (event) => {
+        let draftOrder =
+            [{ name: "New York", seed: 1, place: 1 },
+            { name: "Cleveland", seed: 2, place: 2 },
+            { name: "Phoenix", seed: 3, place: 3 },
+            { name: "Chicago", seed: 4, place: 4 },
+            { name: "Atlanta", seed: 5, place: 5 },
+            { name: "Washington", seed: 6, place: 6 },
+            { name: "New Orleans", seed: 7, place: 7 },
+            { name: "Memphis", seed: 8, place: 8 },
+            { name: "Atlanta", seed: 9, place: 9 },
+            { name: "Minnesota", seed: 10, place: 10 },
+            { name: "Los Angeles", seed: 11, place: 11 },
+            { name: "Charlotte", seed: 12, place: 12 },
+            { name: "Miami", seed: 13, place: 13 },
+            { name: "Boston", seed: 14, place: 14 }];
         let first = "";
         let second = "";
         let third = "";
@@ -74,6 +89,58 @@ class SimLotteryButton extends Component {
                 }
             }
         }
+        let bottomTwelve = [];
+        let finalOrder = [];
+        let placeCounter = 5;
+
+        for (let i = 0; i < draftOrder.length; i++) {
+            if (draftOrder[i].seed != first.seed && draftOrder[i].seed != second.seed &&
+                draftOrder[i].seed != third.seed && draftOrder[i].seed != fourth.seed) {
+                bottomTwelve.push(draftOrder[i]);
+            } else if (draftOrder[i].seed == first.seed) {
+                draftOrder[i].place = 1;
+                finalOrder.push(draftOrder[i]);
+            } else if (draftOrder[i].seed == second.seed) {
+                draftOrder[i].place = 2;
+                finalOrder.push(draftOrder[i]);
+            } else if (draftOrder[i].seed == third.seed) {
+                draftOrder[i].place = 3;
+                finalOrder.push(draftOrder[i]);
+            } else if (draftOrder[i].seed == fourth.seed) {
+                draftOrder[i].place = 4;
+                finalOrder.push(draftOrder[i])
+            }
+        }
+
+        function propComparator(prop) {
+            return function (a, b) {
+                return a[prop] - b[prop];
+            }
+        }
+
+        bottomTwelve = bottomTwelve.sort(propComparator('seed'));
+        for (let i = 0; i < bottomTwelve.length; i++) {
+            bottomTwelve[i].place = placeCounter;
+            finalOrder.push(bottomTwelve[i]);
+            placeCounter++;
+        }
+
+        finalOrder = finalOrder.sort(propComparator('place'));
+        for (let i = 0; i < finalOrder.length; i++) {
+            if (finalOrder[i].seed == 9 && finalOrder[i].place < 5) {
+                finalOrder[i].name = "Dallas";
+            } else if (finalOrder[i].seed == 9 && finalOrder[i].place > 4) {
+                finalOrder[i].name = "Atlanta";
+            } else if (finalOrder[i].seed == 8 && finalOrder[i].place > 8) {
+                finalOrder[i].name = "Boston";
+            } else if (finalOrder[i].seed == 8 && finalOrder[i].place <= 8) {
+                finalOrder[i].name = "Memphis";
+            } else if (finalOrder[i].seed == 14 && finalOrder[i].place == 1) {
+                finalOrder[i].name = "Sacramento";
+            } else if (finalOrder[i].seed == 14 && finalOrder[i].place != 1) {
+                finalOrder[i].name = "Boston";
+            }
+        }
 
         let action = {
             type: 'SET_ORDER',
@@ -85,6 +152,10 @@ class SimLotteryButton extends Component {
             }
         }
         this.props.dispatch(action);
+
+        let simulation = { type: 'ADD_SIMULATION', payload: finalOrder }
+        console.log('sim', simulation.payload);
+        this.props.dispatch(simulation);
     }
 
     render() {
