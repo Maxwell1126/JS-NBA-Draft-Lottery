@@ -19,10 +19,13 @@ width: width 30%;
 }
 
 .simButton{
-    padding-top: 13px;
+    padding-top: 14px;
     padding-bottom: 10px;
 }
 
+.counter{
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 .zionImage{
 background-image: url('../Images/zionWolves.png');
 background-size: contain;
