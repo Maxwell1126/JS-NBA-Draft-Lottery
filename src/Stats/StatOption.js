@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+
 class StatOption extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            stats: [],
-        }
     }
 
     componentDidMount() {

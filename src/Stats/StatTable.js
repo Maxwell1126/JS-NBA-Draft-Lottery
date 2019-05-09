@@ -35,8 +35,8 @@ class StatsTable extends Component {
                 direction="column"
                 justify="center"
                 alignItems="center">
-                <Grid item xs className = "counter">
-                <h3>Simulated {counter} Times</h3>
+                <Grid item xs className="counter">
+                    <h3>Simulated {counter} Times</h3>
                 </Grid>
                 <Table item xs >
                     <TableHead>
