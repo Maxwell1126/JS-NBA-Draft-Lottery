@@ -11,8 +11,19 @@ function* addSimulation(simulation) {
     }
 }
 
+function* getLatestSimulation(action){
+    try {
+        const response = yield axios.get('/api/simulations');
+        const simulation = { type: 'SET_ORDER', payload: response.data }
+        yield put(simulation);
+    } catch (error) {
+        console.log('Error getting classes', error);
+    }
+}
+
 function* finalPlaceSaga() {
     yield takeLatest('ADD_SIMULATION', addSimulation);
+    yield takeLatest('GET_LATEST_SIMULATION', getLatestSimulation);
 }
 
 export default finalPlaceSaga;

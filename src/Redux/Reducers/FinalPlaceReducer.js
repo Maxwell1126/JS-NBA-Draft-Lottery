@@ -31,62 +31,69 @@ let draftOrder =
 const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
     switch (action.type) {
         case 'SET_ORDER':
-            let bottomTwelve = [];
-            let finalOrder = [];
-            let placeCounter = 5;
+        console.log('database response', action.payload[0]);
+        // let finalOrder;
+        // let finalPlace = 1;
+        // for( i = 0; i < draftOrder.length; i++){
+        //     if(action.payload[0].1st)
+        // }
+        
+            // let bottomTwelve = [];
+            // let finalOrder = [];
+            // let placeCounter = 5;
 
-            for (let i = 0; i < DEFAULT_ORDER.length; i++) {
-                if (DEFAULT_ORDER[i].seed != action.payload.first.seed && DEFAULT_ORDER[i].seed != action.payload.second.seed &&
-                    DEFAULT_ORDER[i].seed != action.payload.third.seed && DEFAULT_ORDER[i].seed != action.payload.fourth.seed) {
-                    bottomTwelve.push(DEFAULT_ORDER[i]);
-                } else if (DEFAULT_ORDER[i].seed == action.payload.first.seed) {
-                    DEFAULT_ORDER[i].place = 1;
-                    finalOrder.push(DEFAULT_ORDER[i]);
-                } else if (DEFAULT_ORDER[i].seed == action.payload.second.seed) {
-                    DEFAULT_ORDER[i].place = 2;
-                    finalOrder.push(DEFAULT_ORDER[i]);
-                } else if (DEFAULT_ORDER[i].seed == action.payload.third.seed) {
-                    DEFAULT_ORDER[i].place = 3;
-                    finalOrder.push(DEFAULT_ORDER[i]);
-                } else if (DEFAULT_ORDER[i].seed == action.payload.fourth.seed) {
-                    DEFAULT_ORDER[i].place = 4;
-                    finalOrder.push(DEFAULT_ORDER[i])
-                }
-            }
+            // for (let i = 0; i < DEFAULT_ORDER.length; i++) {
+            //     if (DEFAULT_ORDER[i].seed != action.payload.first.seed && DEFAULT_ORDER[i].seed != action.payload.second.seed &&
+            //         DEFAULT_ORDER[i].seed != action.payload.third.seed && DEFAULT_ORDER[i].seed != action.payload.fourth.seed) {
+            //         bottomTwelve.push(DEFAULT_ORDER[i]);
+            //     } else if (DEFAULT_ORDER[i].seed == action.payload.first.seed) {
+            //         DEFAULT_ORDER[i].place = 1;
+            //         finalOrder.push(DEFAULT_ORDER[i]);
+            //     } else if (DEFAULT_ORDER[i].seed == action.payload.second.seed) {
+            //         DEFAULT_ORDER[i].place = 2;
+            //         finalOrder.push(DEFAULT_ORDER[i]);
+            //     } else if (DEFAULT_ORDER[i].seed == action.payload.third.seed) {
+            //         DEFAULT_ORDER[i].place = 3;
+            //         finalOrder.push(DEFAULT_ORDER[i]);
+            //     } else if (DEFAULT_ORDER[i].seed == action.payload.fourth.seed) {
+            //         DEFAULT_ORDER[i].place = 4;
+            //         finalOrder.push(DEFAULT_ORDER[i])
+            //     }
+            // }
 
-            function propComparator(prop) {
-                return function (a, b) {
-                    return a[prop] - b[prop];
-                }
-            }
+            // function propComparator(prop) {
+            //     return function (a, b) {
+            //         return a[prop] - b[prop];
+            //     }
+            // }
 
-            bottomTwelve = bottomTwelve.sort(propComparator('seed'));
-            for (let i = 0; i < bottomTwelve.length; i++) {
-                bottomTwelve[i].place = placeCounter;
-                finalOrder.push(bottomTwelve[i]);
-                placeCounter++;
-            }
+            // bottomTwelve = bottomTwelve.sort(propComparator('seed'));
+            // for (let i = 0; i < bottomTwelve.length; i++) {
+            //     bottomTwelve[i].place = placeCounter;
+            //     finalOrder.push(bottomTwelve[i]);
+            //     placeCounter++;
+            // }
 
-            finalOrder = finalOrder.sort(propComparator('place'));
-            for (let i = 0; i < finalOrder.length; i++) {
-                if (finalOrder[i].seed == 9 && finalOrder[i].place < 5) {
-                    finalOrder[i].name = "Dallas";
-                } else if (finalOrder[i].seed == 9 && finalOrder[i].place > 4) {
-                    finalOrder[i].name = "Atlanta";
-                } else if (finalOrder[i].seed == 8 && finalOrder[i].place > 8) {
-                    finalOrder[i].name = "Boston";
-                } else if (finalOrder[i].seed == 8 && finalOrder[i].place <= 8) {
-                    finalOrder[i].name = "Memphis";
-                } else if (finalOrder[i].seed == 14 && finalOrder[i].place == 1) {
-                    finalOrder[i].name = "Sacramento";
-                } else if (finalOrder[i].seed == 14 && finalOrder[i].place != 1) {
-                    finalOrder[i].name = "Boston";
-                }
-            }
+            // finalOrder = finalOrder.sort(propComparator('place'));
+            // for (let i = 0; i < finalOrder.length; i++) {
+            //     if (finalOrder[i].seed == 9 && finalOrder[i].place < 5) {
+            //         finalOrder[i].name = "Dallas";
+            //     } else if (finalOrder[i].seed == 9 && finalOrder[i].place > 4) {
+            //         finalOrder[i].name = "Atlanta";
+            //     } else if (finalOrder[i].seed == 8 && finalOrder[i].place > 8) {
+            //         finalOrder[i].name = "Boston";
+            //     } else if (finalOrder[i].seed == 8 && finalOrder[i].place <= 8) {
+            //         finalOrder[i].name = "Memphis";
+            //     } else if (finalOrder[i].seed == 14 && finalOrder[i].place == 1) {
+            //         finalOrder[i].name = "Sacramento";
+            //     } else if (finalOrder[i].seed == 14 && finalOrder[i].place != 1) {
+            //         finalOrder[i].name = "Boston";
+            //     }
+            // }
             
-            draftOrder = finalOrder;
+            // draftOrder = finalOrder;
             
-            return draftOrder;
+            // return draftOrder;
         case 'DRAFT_ORDER':
             return draftOrder;
         case 'ORIGINAL_ORDER':

@@ -18,7 +18,9 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    let latestSimualtion = `SELECT * FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
+    let latestSimualtion = `SELECT "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th",
+                            "10th", "11th", "12th", "13th", "14th"
+                            FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
     pool.query(latestSimualtion).then((response) => {
         res.send(response.rows);
     }).catch((error) => {
