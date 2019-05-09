@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 // Route includes
 const statsRouter = require('./Routes/stats.router');
+const simulationsRouter = require('./Routes/simulations.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Routes */
 app.use('/api/stats', statsRouter);
+app.use('/api/simulations', simulationsRouter);
 
 // Serve static files
 app.use(express.static('build'));
