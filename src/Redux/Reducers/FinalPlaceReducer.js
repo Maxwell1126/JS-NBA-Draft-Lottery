@@ -27,7 +27,7 @@ let draftOrder =
     { name: "Los Angeles", seed: 11, place: 11 },
     { name: "Charlotte", seed: 12, place: 12 },
     { name: "Miami", seed: 13, place: 13 },
-    { name: "Boston", seed: 14, place: 14 }];;
+    { name: "Boston", seed: 14, place: 14 }];
 const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
     switch (action.type) {
         case 'SET_ORDER':

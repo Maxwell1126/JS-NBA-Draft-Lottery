@@ -20,6 +20,7 @@ class StatsTable extends Component {
     }
 
     render() {
+        let counter = 0;
         let tableContent = this.props.reduxStore.draftLotteryOrder.map(team => {
             return <TableRow >
                 <TableCell className="tableCell"><h3>{team.seed}. {team.name}</h3></TableCell>
@@ -35,13 +36,13 @@ class StatsTable extends Component {
                 justify="center"
                 alignItems="center">
                 <Grid item xs className="simButton">
-                    <StatOption />
+                <h3>Simulated {counter} Times</h3>
                 </Grid>
                 <Table item xs >
                     <TableHead>
                         <TableRow>
                             <TableCell><h3>Team</h3></TableCell>
-                            <TableCell><h3>Stat</h3></TableCell>
+                            <TableCell><h3><StatOption /></h3></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

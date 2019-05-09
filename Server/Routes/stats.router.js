@@ -3,7 +3,7 @@ const pool = require('../Pool');
 const router = express.Router();
 
 router.get('/', (req, res) => {  
-    let allStatsNames = `SELECT * from "stats";`;
+    let allStatsNames = `SELECT * from "stats" ORDER BY "id";`;
     pool.query(allStatsNames).then((response) => {
         res.send(response.rows)
     }).catch((error) => {

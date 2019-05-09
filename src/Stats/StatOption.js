@@ -14,35 +14,19 @@ class StatOption extends Component {
         this.props.dispatch(action);
     }
 
-    // getStatsNames = () => {
-    //     axios({
-    //         method: 'GET',
-    //         url: '/api/stats',
-    //     }).then((response) => {
-    //         console.log('response',response);
-            
-    //         this.setState({
-    //             stats: response.data
-    //         })
-    //     }).catch((error) => {
-    //         console.log('error', error);
-            
-    //     })
-    // }
-
     render() {
         return (
-                <select>
-                    <option value='' disabled selected > Select a Stat</option>
-                {this.props.reduxStore.stats.map(stat =>{
-                        return <option>{stat.name}</option>
-                    })}
-                </select>
+            <select>
+                <option value='' disabled selected > Select a Stat</option>
+                {this.props.reduxStore.stats.map(stat => {
+                    return <option>{stat.name}</option>
+                })}
+            </select>
         )
-}
+    }
 }
 
-    const mapStateToProps = reduxStore => ({
-        reduxStore
-    });
-    export default connect(mapStateToProps)(StatOption);
+const mapStateToProps = reduxStore => ({
+    reduxStore
+});
+export default connect(mapStateToProps)(StatOption);
