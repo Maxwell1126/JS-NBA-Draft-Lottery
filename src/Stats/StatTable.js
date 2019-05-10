@@ -21,22 +21,42 @@ class StatsTable extends Component {
         this.props.dispatch(stats);
     }
 
-
+getStatByType = (event) => {
+    if(event.target.value == 1){
+        let first = { type: 'GET_FIRST' }
+        this.props.dispatch(first);
+    } else if (event.target.value == 2) {
+        let second= { type: 'GET_SECOND' }
+        this.props.dispatch(second);
+    } else if (event.target.value == 3) {
+        let third = { type: 'GET_THIRD' }
+        this.props.dispatch(third);
+    } else if (event.target.value == 4) {
+        let fourth = { type: 'GET_FOURTH' }
+        this.props.dispatch(fourth);
+    } else if (event.target.value == 5) {
+        let topFour = { type: 'GET_TOP_FOUR' }
+        this.props.dispatch(topFour);
+    } else if (event.target.value == 6) {
+        let meanPlace = { type: 'MEAN_PLACE' }
+        this.props.dispatch(meanPlace);
+    }
+}
     render() {
 
-        let statSelector = <select>
+        let statSelector = <select onChange = {this.getStatByType}>
             <option value='' disabled selected > Select a Stat</option>
             {this.props.reduxStore.stats.map(stat => {
-                return <option>{stat.name}</option>
+                return <option value = {stat.id}>{stat.name}</option>
             })}
         </select>;
-    let counter = 0;
-        let tableContent = 
+        let counter = 0;
+        let tableContent =
             this.props.reduxStore.selectedStat.map(team => {
-                return  <TableRow >
-                        <TableCell className="tableCell"><h3>{team.id}. {team.name}</h3></TableCell>
-                        <TableCell className="tableCell"><h3>{team.count}</h3></TableCell>
-                        </TableRow>
+                return <TableRow >
+                    <TableCell className="tableCell"><h3>{team.id}. {team.name}</h3></TableCell>
+                    <TableCell className="tableCell"><h3>{team.count}</h3></TableCell>
+                </TableRow>
             })
 
         return (
