@@ -8,23 +8,46 @@ import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
 import StatOption from './StatOption.js';
 import '../LotteryTeams/LotteryTeams.css'
-
+import axios from 'axios';
 class StatsTable extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            topFour: [],
+        }
     }
 
     componentDidMount() {
         let action = { type: 'ORIGINAL_ORDER' }
         this.props.dispatch(action);
+        this.getTopFour();
     }
+getTopFour = () => {
+    axios({
+        method: 'GET',
+        url: '/api/stats/topFour'
+    }).then((response)=>{
+        console.log('response', response.data);
+        
+        this.setState({
+            topFour: response.data
+        });
+        
+        
+    }).catch((error)=>{
+        console.log('error in topfour', error);
+    })
+}
+    
 
     render() {
+        console.log('state', this.state.topFour);
+        
         let counter = 0;
-        let tableContent = this.props.reduxStore.draftLotteryOrder.map(team => {
+        let tableContent = this.state.topFour.map(team => {
             return <TableRow >
-                <TableCell className="tableCell"><h3>{team.seed}. {team.name}</h3></TableCell>
-                <TableCell className="tableCell"><h3></h3></TableCell>
+                <TableCell className="tableCell"><h3>{team.id}. {team.name}</h3></TableCell>
+                <TableCell className="tableCell"><h3>{team.count}</h3></TableCell>
             </TableRow>
         })
 
@@ -37,6 +60,7 @@ class StatsTable extends Component {
                 alignItems="center">
                 <Grid item xs className="counter">
                     <h3>Simulated {counter} Times</h3>
+                    <h6>{}</h6>
                 </Grid>
                 <Table item xs >
                     <TableHead>
