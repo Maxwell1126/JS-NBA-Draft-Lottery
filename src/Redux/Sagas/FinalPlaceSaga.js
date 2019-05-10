@@ -4,8 +4,8 @@ import axios from 'axios';
 function* addSimulation(simulation) {
     try {
         yield axios.post('/api/simulations', simulation.payload);
-        const getSimulations = { type: 'GET_SIMULATIONS' }
-        yield put(getSimulations);
+        const getLatest = { type: 'GET_LATEST_SIMULATION' }
+        yield put(getLatest);
     } catch (error) {
         console.log('Error in axios POST:', error);
     }

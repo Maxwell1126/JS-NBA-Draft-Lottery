@@ -10,6 +10,7 @@ router.post('/', (req, res) => {
             let simulationID;
             let simulationCheck = `SELECT * FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
             let results = await client.query(simulationCheck);
+
             if(results.rows.length == 0){
                 let simulation = `INSERT INTO "simulations" (id) VALUES ($1)
                               RETURNING "id";`;
@@ -48,14 +49,30 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    // let latestSimualtion = `SELECT "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th",
-    //                         "10th", "11th", "12th", "13th", "14th"
-    //                         FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
-    // pool.query(latestSimualtion).then((response) => {
-    //     res.send(response.rows);
-    // }).catch((error) => {
-    //     console.log('error in server getting from database.', error);
-    // })
-})
+    (async () => {
+        const client = await pool.connect();
+        try {
+            await client.query('BEGIN');
+
+            let idCheck = `SELECT "id" FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
+            let latestID = await client.query(idCheck);
+            
+            let getLatest = `SELECT * FROM "simulations_results" 
+                                    WHERE "simulation_id" = ($1) ORDER BY "place";`;
+            let simID = [latestID.rows[0].id]
+            let latestSimualtion = await client.query(getLatest, simID);
+            res.send(latestSimualtion.rows)
+        } catch (e) {
+            console.log('ROLLBACK', e);
+            await client.query('ROLLBACK');
+            throw e;
+        } finally {
+            client.release();
+        }
+    })().catch((error) => {
+        console.log('error in server posting to database.', error);
+        res.sendStatus(500);
+    })
+});
 
 module.exports = router;

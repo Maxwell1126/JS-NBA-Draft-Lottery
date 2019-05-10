@@ -141,8 +141,8 @@ class SimLotteryButton extends Component {
                 finalOrder[i].name = "Boston";
             }
         }
-        let action = {type: 'GET_LATEST_SIMULATION'};
-        this.props.dispatch(action);
+        // let action = {type: 'GET_LATEST_SIMULATION'};
+        // this.props.dispatch(action);
         // let action = {
         //     type: 'SET_ORDER',
         //     payload: {

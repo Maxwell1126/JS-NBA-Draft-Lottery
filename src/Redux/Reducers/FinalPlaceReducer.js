@@ -31,7 +31,7 @@ let draftOrder =
 const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
     switch (action.type) {
         case 'SET_ORDER':
-        console.log('database response', action.payload[0]);
+        console.log('database response', action.payload);
         // let finalOrder;
         // let finalPlace = 1;
         // for( i = 0; i < draftOrder.length; i++){
