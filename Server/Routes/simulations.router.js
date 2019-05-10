@@ -57,8 +57,10 @@ router.get('/', (req, res) => {
             let idCheck = `SELECT "id" FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
             let latestID = await client.query(idCheck);
             
-            let getLatest = `SELECT * FROM "simulations_results" 
-                                    WHERE "simulation_id" = ($1) ORDER BY "place";`;
+            let getLatest = `SELECT "teams"."name", "simulations_results"."team_id" AS "seed", 
+                             "simulations_results"."place" FROM "simulations_results"
+                             JOIN "teams" ON "teams"."id" = "simulations_results"."team_id"
+                             WHERE "simulation_id" = ($1) ORDER BY "place";`;
             let simID = [latestID.rows[0].id]
             let latestSimualtion = await client.query(getLatest, simID);
             res.send(latestSimualtion.rows)

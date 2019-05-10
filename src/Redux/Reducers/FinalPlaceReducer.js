@@ -31,87 +31,41 @@ let draftOrder =
 const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
     switch (action.type) {
         case 'SET_ORDER':
+        let latestOrder = action.payload;
             console.log('database response', action.payload);
-            for (let i = 0; i < action.payload.length; i++) {
-                for (let j = 0; j < draftOrder.length; j++) {
-                    if (draftOrder[j].seed == action.payload[i].team_id) {
-                        draftOrder[j].place = action.payload[i].place;
-                    }
+            // for (let i = 0; i < action.payload.length; i++) {
+            //     for (let j = 0; j < draftOrder.length; j++) {
+            //         if (draftOrder[j].seed == action.payload[i].team_id) {
+            //             draftOrder[j].place = action.payload[i].place;
+            //         }
+            //     }
+            // }
+            // function propComparator(prop) {
+            //     return function (a, b) {
+            //         return a[prop] - b[prop];
+            //     }
+            // }
+            // draftOrder = draftOrder.sort(propComparator('place'));
+            for (let i = 0; i < latestOrder.length; i++) {
+                if (latestOrder[i].seed == 9 && latestOrder[i].place < 5) {
+                    latestOrder[i].name = "Dallas";
+                } else if (latestOrder[i].seed== 9 && latestOrder[i].place > 4) {
+                    latestOrder[i].name = "Atlanta";
+                } else if (latestOrder[i].seed == 8 && latestOrder[i].place > 8) {
+                    latestOrder[i].name = "Boston";
+                } else if (latestOrder[i].seed == 8 && latestOrder[i].place <= 8) {
+                    latestOrder[i].name = "Memphis";
+                } else if (latestOrder[i].seed == 14 && latestOrder[i].place == 1) {
+                    latestOrder[i].name = "Sacramento";
+                } else if (latestOrder[i].seed == 14 && latestOrder[i].place != 1) {
+                    latestOrder[i].name = "Boston";
                 }
             }
-            function propComparator(prop) {
-                return function (a, b) {
-                    return a[prop] - b[prop];
-                }
-            }
-            draftOrder = draftOrder.sort(propComparator('place'));
-            console.log('draft order', draftOrder);
-            
-            return draftOrder;
-        // let finalOrder;
-        // let finalPlace = 1;
-        // for( i = 0; i < draftOrder.length; i++){
-        //     if(action.payload[0].1st)
-        // }
-
-        // let bottomTwelve = [];
-        // let finalOrder = [];
-        // let placeCounter = 5;
-
-        // for (let i = 0; i < DEFAULT_ORDER.length; i++) {
-        //     if (DEFAULT_ORDER[i].seed != action.payload.first.seed && DEFAULT_ORDER[i].seed != action.payload.second.seed &&
-        //         DEFAULT_ORDER[i].seed != action.payload.third.seed && DEFAULT_ORDER[i].seed != action.payload.fourth.seed) {
-        //         bottomTwelve.push(DEFAULT_ORDER[i]);
-        //     } else if (DEFAULT_ORDER[i].seed == action.payload.first.seed) {
-        //         DEFAULT_ORDER[i].place = 1;
-        //         finalOrder.push(DEFAULT_ORDER[i]);
-        //     } else if (DEFAULT_ORDER[i].seed == action.payload.second.seed) {
-        //         DEFAULT_ORDER[i].place = 2;
-        //         finalOrder.push(DEFAULT_ORDER[i]);
-        //     } else if (DEFAULT_ORDER[i].seed == action.payload.third.seed) {
-        //         DEFAULT_ORDER[i].place = 3;
-        //         finalOrder.push(DEFAULT_ORDER[i]);
-        //     } else if (DEFAULT_ORDER[i].seed == action.payload.fourth.seed) {
-        //         DEFAULT_ORDER[i].place = 4;
-        //         finalOrder.push(DEFAULT_ORDER[i])
-        //     }
-        // }
-
-        // function propComparator(prop) {
-        //     return function (a, b) {
-        //         return a[prop] - b[prop];
-        //     }
-        // }
-
-        // bottomTwelve = bottomTwelve.sort(propComparator('seed'));
-        // for (let i = 0; i < bottomTwelve.length; i++) {
-        //     bottomTwelve[i].place = placeCounter;
-        //     finalOrder.push(bottomTwelve[i]);
-        //     placeCounter++;
-        // }
-
-        // finalOrder = finalOrder.sort(propComparator('place'));
-        // for (let i = 0; i < finalOrder.length; i++) {
-        //     if (finalOrder[i].seed == 9 && finalOrder[i].place < 5) {
-        //         finalOrder[i].name = "Dallas";
-        //     } else if (finalOrder[i].seed == 9 && finalOrder[i].place > 4) {
-        //         finalOrder[i].name = "Atlanta";
-        //     } else if (finalOrder[i].seed == 8 && finalOrder[i].place > 8) {
-        //         finalOrder[i].name = "Boston";
-        //     } else if (finalOrder[i].seed == 8 && finalOrder[i].place <= 8) {
-        //         finalOrder[i].name = "Memphis";
-        //     } else if (finalOrder[i].seed == 14 && finalOrder[i].place == 1) {
-        //         finalOrder[i].name = "Sacramento";
-        //     } else if (finalOrder[i].seed == 14 && finalOrder[i].place != 1) {
-        //         finalOrder[i].name = "Boston";
-        //     }
-        // }
-
-        // draftOrder = finalOrder;
-
-        // return draftOrder;
+            console.log('draft order', latestOrder);
+            state = latestOrder
+            return state;
         case 'DRAFT_ORDER':
-            return draftOrder;
+            return state;
         case 'ORIGINAL_ORDER':
             return DEFAULT_ORDER;
         default:

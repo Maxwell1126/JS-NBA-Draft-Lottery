@@ -15,7 +15,7 @@ class LotteryTeams extends Component {
     }
 
     componentDidMount() {
-        let action = { type: 'DRAFT_ORDER' }
+        let action = { type: 'GET_LATEST_SIMULATION' }
         this.props.dispatch(action);
     }
 
