@@ -6,46 +6,38 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
-import StatOption from './StatOption.js';
 import '../LotteryTeams/LotteryTeams.css'
-import axios from 'axios';
 class StatsTable extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            topFour: [],
-        }
     }
 
     componentDidMount() {
-        let action = { type: 'ORIGINAL_ORDER' }
-        this.props.dispatch(action);
-        let topFour = { type: 'GET_TOP_FOUR' }
-        this.props.dispatch(topFour);
+        let order = { type: 'ORIGINAL_ORDER' }
+        this.props.dispatch(order);
+        let unselectedStats = { type: 'UNSELECTED_STATS' }
+        this.props.dispatch(unselectedStats);
+        let stats = { type: 'GET_STATS' }
+        this.props.dispatch(stats);
     }
 
-// getTopFour = () => {
-//     axios({
-//         method: 'GET',
-//         url: '/api/stats/topFour'
-//     }).then((response)=>{
-//         this.setState({
-//             topFour: response.data
-//         });   
-//     }).catch((error)=>{
-//         console.log('error in topfour', error);
-//     })
-// }
-    
 
     render() {
-        let counter = 0;
-        let tableContent = this.props.reduxStore.topFour.map(team => {
-            return <TableRow >
-                <TableCell className="tableCell"><h3>{team.id}. {team.name}</h3></TableCell>
-                <TableCell className="tableCell"><h3>{team.count}</h3></TableCell>
-            </TableRow>
-        })
+
+        let statSelector = <select>
+            <option value='' disabled selected > Select a Stat</option>
+            {this.props.reduxStore.stats.map(stat => {
+                return <option>{stat.name}</option>
+            })}
+        </select>;
+    let counter = 0;
+        let tableContent = 
+            this.props.reduxStore.selectedStat.map(team => {
+                return  <TableRow >
+                        <TableCell className="tableCell"><h3>{team.id}. {team.name}</h3></TableCell>
+                        <TableCell className="tableCell"><h3>{team.count}</h3></TableCell>
+                        </TableRow>
+            })
 
         return (
             <Grid className="tableContainer"
@@ -61,7 +53,7 @@ class StatsTable extends Component {
                     <TableHead>
                         <TableRow>
                             <TableCell><h3>Team</h3></TableCell>
-                            <TableCell><h3><StatOption /></h3></TableCell>
+                            <TableCell><h3>{statSelector}</h3></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
