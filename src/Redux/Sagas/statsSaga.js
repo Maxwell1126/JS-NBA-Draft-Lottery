@@ -7,12 +7,23 @@ function* getStats(action) {
         const stats = { type: 'SET_STATS', payload: response.data }
         yield put(stats);
     } catch (error) {
-        console.log('Error getting classes', error);
+        console.log('Error getting stats', error);
+    }
+}
+
+function* getTopFour(action) {
+    try {
+        const response = yield axios.get('/api/stats/topFour');
+        const topFour = { type: 'SET_TOP_FOUR', payload: response.data }
+        yield put(topFour);
+    } catch (error) {
+        console.log('Error getting topFour', error);
     }
 }
 
 function* getStatsSaga() {
     yield takeLatest('GET_STATS', getStats);
+    yield takeLatest('GET_TOP_FOUR', getTopFour);
 }
 
 export default getStatsSaga;

@@ -20,31 +20,27 @@ class StatsTable extends Component {
     componentDidMount() {
         let action = { type: 'ORIGINAL_ORDER' }
         this.props.dispatch(action);
-        this.getTopFour();
+        let topFour = { type: 'GET_TOP_FOUR' }
+        this.props.dispatch(topFour);
     }
-getTopFour = () => {
-    axios({
-        method: 'GET',
-        url: '/api/stats/topFour'
-    }).then((response)=>{
-        console.log('response', response.data);
-        
-        this.setState({
-            topFour: response.data
-        });
-        
-        
-    }).catch((error)=>{
-        console.log('error in topfour', error);
-    })
-}
+
+// getTopFour = () => {
+//     axios({
+//         method: 'GET',
+//         url: '/api/stats/topFour'
+//     }).then((response)=>{
+//         this.setState({
+//             topFour: response.data
+//         });   
+//     }).catch((error)=>{
+//         console.log('error in topfour', error);
+//     })
+// }
     
 
     render() {
-        console.log('state', this.state.topFour);
-        
         let counter = 0;
-        let tableContent = this.state.topFour.map(team => {
+        let tableContent = this.props.reduxStore.topFour.map(team => {
             return <TableRow >
                 <TableCell className="tableCell"><h3>{team.id}. {team.name}</h3></TableCell>
                 <TableCell className="tableCell"><h3>{team.count}</h3></TableCell>
@@ -52,7 +48,6 @@ getTopFour = () => {
         })
 
         return (
-
             <Grid className="tableContainer"
                 container xs
                 direction="column"
@@ -74,7 +69,6 @@ getTopFour = () => {
                     </TableBody>
                 </Table>
             </Grid>
-
         )
     }
 }
