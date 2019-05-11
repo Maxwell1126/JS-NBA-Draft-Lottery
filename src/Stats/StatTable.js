@@ -23,7 +23,8 @@ class StatsTable extends Component {
 
 getStatByType = (event) => {
     
-    if(event.target.value == 1 || 2 || 3 || 4){
+    if (event.target.value == 1 || event.target.value == 2 ||
+         event.target.value == 3 || event.target.value == 4){
         let places = { type: 'GET_PLACES', payload: {place: event.target.value}}
         this.props.dispatch(places);
     } else if (event.target.value == 5) {

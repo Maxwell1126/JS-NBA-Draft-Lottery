@@ -17,6 +17,8 @@ const DEFAULT_ARRAY =
 const selectedStat = (state = DEFAULT_ARRAY, action) => {
     switch (action.type) {
         case 'SET_TOP_FOUR':
+        console.log('in set top four');
+        
             state = action.payload;
             return state;
         case 'SET_PLACES':

@@ -13,6 +13,8 @@ function* getStats(action) {
 
 function* getTopFour(action) {
     try {
+        console.log('in get top four');
+        
         const response = yield axios.get('/api/stats/topFour');
         const topFour = { type: 'SET_TOP_FOUR', payload: response.data }
         yield put(topFour);

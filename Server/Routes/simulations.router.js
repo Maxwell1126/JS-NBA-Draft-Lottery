@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
             for(i = 0; i < req.body.length; i ++){
                 let simulationResults = `INSERT INTO "simulations_results" 
                                         ("simulation_id", "team_id", "place")
-                                        VALUES($1, $2, $3);`;
+                                        VALUES($1, $2, $3);`;                   
                 let values = [simulationID, req.body[i].seed, req.body[i].place]
                 await client.query(simulationResults, values);
             }
