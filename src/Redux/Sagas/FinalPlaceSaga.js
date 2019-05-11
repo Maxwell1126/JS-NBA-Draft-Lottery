@@ -11,6 +11,16 @@ function* addSimulation(simulation) {
     }
 }
 
+function* getTotalSimulations(action){
+    try {
+        const response = yield axios.get('/api/simulations/total');
+        const total = { type: 'SET_TOTAL_SIMS', payload: response.data};
+        yield put(total);
+    } catch (error) {
+        console.log('Error in axios get', error); 
+    }
+}
+
 function* getLatestSimulation(action){
     try {
         const response = yield axios.get('/api/simulations');
@@ -24,6 +34,7 @@ function* getLatestSimulation(action){
 function* finalPlaceSaga() {
     yield takeLatest('ADD_SIMULATION', addSimulation);
     yield takeLatest('GET_LATEST_SIMULATION', getLatestSimulation);
+    yield takeLatest('GET_TOTAL_SIMS', getTotalSimulations);
 }
 
 export default finalPlaceSaga;
