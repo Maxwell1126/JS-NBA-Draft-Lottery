@@ -21,9 +21,20 @@ function* getTopFour(action) {
     }
 }
 
+function* getPlaces(action){
+    try {
+        const response = yield axios.post('/api/stats/places', action.payload);
+        const setPlaces = { type: 'SET_PLACES', payload: response.data }
+        yield put(setPlaces);
+    } catch (error) {
+        console.log('Error in axios POST:', error);
+    }
+}
+
 function* getStatsSaga() {
     yield takeLatest('GET_STATS', getStats);
     yield takeLatest('GET_TOP_FOUR', getTopFour);
+    yield takeLatest('GET_PLACES', getPlaces);
 }
 
 export default getStatsSaga;

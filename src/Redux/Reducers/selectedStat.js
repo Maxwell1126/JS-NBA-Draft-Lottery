@@ -19,16 +19,7 @@ const selectedStat = (state = DEFAULT_ARRAY, action) => {
         case 'SET_TOP_FOUR':
             state = action.payload;
             return state;
-        case 'SET_FIRST':
-            state = action.payload;
-            return state;
-        case 'SET_SECOND':
-            state = action.payload;
-            return state;
-        case 'SET_THIRD':
-            state = action.payload;
-            return state;
-        case 'SET_FOURTH':
+        case 'SET_PLACES':
             state = action.payload;
             return state;
         case 'MEAN_PLACE':

@@ -22,18 +22,10 @@ class StatsTable extends Component {
     }
 
 getStatByType = (event) => {
-    if(event.target.value == 1){
-        let first = { type: 'GET_FIRST' }
-        this.props.dispatch(first);
-    } else if (event.target.value == 2) {
-        let second= { type: 'GET_SECOND' }
-        this.props.dispatch(second);
-    } else if (event.target.value == 3) {
-        let third = { type: 'GET_THIRD' }
-        this.props.dispatch(third);
-    } else if (event.target.value == 4) {
-        let fourth = { type: 'GET_FOURTH' }
-        this.props.dispatch(fourth);
+    
+    if(event.target.value == 1 || 2 || 3 || 4){
+        let places = { type: 'GET_PLACES', payload: {place: event.target.value}}
+        this.props.dispatch(places);
     } else if (event.target.value == 5) {
         let topFour = { type: 'GET_TOP_FOUR' }
         this.props.dispatch(topFour);
