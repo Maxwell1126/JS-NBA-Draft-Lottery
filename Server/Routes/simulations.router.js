@@ -77,4 +77,18 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/total', (req,res)=>{
+    let allStatsNames = `SELECT "id" FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
+    pool.query(allStatsNames).then((response) => {
+        if(response.rows){
+        res.send(response.rows)
+        } else{
+            let gooseEgg = 0;
+            res.send(gooseEgg);
+        }
+    }).catch((error) => {
+        console.log('error in server getting from database.', error);
+    })
+})
+
 module.exports = router;
