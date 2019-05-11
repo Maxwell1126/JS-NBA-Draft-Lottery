@@ -31,8 +31,8 @@ getStatByType = (event) => {
         let topFour = { type: 'GET_TOP_FOUR' }
         this.props.dispatch(topFour);
     } else if (event.target.value == 6) {
-        let meanPlace = { type: 'MEAN_PLACE' }
-        this.props.dispatch(meanPlace);
+        let modePlace = { type: 'GET_MODE' }
+        this.props.dispatch(modePlace);
     }
 }
     render() {

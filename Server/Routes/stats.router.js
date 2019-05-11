@@ -124,8 +124,10 @@ router.get('/mode', (req, res) => {
                         return a[prop] - b[prop];
                     }
                 }
+            
             let simulationCheck = `SELECT * FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
             let simulations = await client.query(simulationCheck);
+            
             if (simulations.rows.length == 0) {
                 for (let i = 0; i < teams.rows.length; i++) {
                     modeCounts.push({
@@ -136,40 +138,44 @@ router.get('/mode', (req, res) => {
             } else {
                 for (let i = 0; i < teams.rows.length; i++) {
                     let teamsMost = [];
-                    for (j = 0; j < 14; j++) {
-                        let getPlace = `SELECT "teams"."name", "teams"."id", "simulations_results"."place",
+                    for (j = 1; j < 15; j++) {
+                        let getPlace = `SELECT "teams"."name", "teams"."id", 
+                                      "simulations_results"."place" AS "place",
                                       COUNT(*) FROM "simulations_results" JOIN "teams" ON 
                                       "teams"."id" = "simulations_results"."team_id" 
                                       WHERE "team_id" = ($1) AND "place" = ($2) 
-                                      GROUP BY "teams"."name", "teams"."id";`;
+                                      GROUP BY "teams"."name", "teams"."id", "simulations_results"."place";`;
                         let values = [teams.rows[i].id, j];
                         let placeCount = await client.query(getPlace, values);
-                        if (placeCount.rows.length == 0) {
+                        if (!placeCount.rows[0]) {
                             teamsMost.push({
                                 name: teams.rows[i].name, id: teams.rows[i].id,
-                                count: 0, place: teams.rows[i].id,
+                                amount:0,
+                                count: j
 
                             })
-                        } else {
+                        } else {     
                             teamsMost.push({
                                 name: placeCount.rows[0].name, id: teams.rows[i].id,
-                                count: parseInt(placeCount.rows[0].count),
-                                place: i,
+                                amount: parseInt(placeCount.rows[0].count),
+                                count: placeCount.rows[0].place,
                             })
                         }
-                        if (placeCount.rows.length == 14) {
-                            teamsMost = teamsMost.sort(propComparator('count'));
+                        if (teamsMost.length == 14) {
+                            teamsMost = teamsMost.sort(propComparator('amount'));
+                            let lastIndex = teamsMost.length -1;
                             modeCounts.push({
-                                name: teams[i].name, id: teamsMost[13].id,
-                                place: teamsMost[13].place
+                                name: teamsMost[lastIndex].name, id: teamsMost[lastIndex].id,
+                                count: teamsMost[lastIndex].count
                             });
+                            
                             teamsMost = [];
                         }
                     }
                 }
             }
-            modeCounts = modeCounts.sort(propComparator('id'));
-            res.send(modeCounts.rows)
+            modeCounts = modeCounts.sort(propComparator('id'));         
+            res.send(modeCounts)
             } catch (e) {
                 console.log('ROLLBACK', e);
                 await client.query('ROLLBACK');

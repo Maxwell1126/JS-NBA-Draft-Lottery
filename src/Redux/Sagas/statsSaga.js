@@ -33,10 +33,21 @@ function* getPlaces(action){
     }
 }
 
+function* getMode(action) {
+    try {
+        const response = yield axios.get('/api/stats/mode');
+        const teamMode = { type: 'SET_MODE', payload: response.data }
+        yield put(teamMode);
+    } catch (error) {
+        console.log('Error getting getMode', error);
+    }
+}
+
 function* getStatsSaga() {
     yield takeLatest('GET_STATS', getStats);
     yield takeLatest('GET_TOP_FOUR', getTopFour);
     yield takeLatest('GET_PLACES', getPlaces);
+    yield takeLatest('GET_MODE', getMode);
 }
 
 export default getStatsSaga;

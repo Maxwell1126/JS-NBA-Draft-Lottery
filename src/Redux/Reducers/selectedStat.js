@@ -24,7 +24,7 @@ const selectedStat = (state = DEFAULT_ARRAY, action) => {
         case 'SET_PLACES':
             state = action.payload;
             return state;
-        case 'MEAN_PLACE':
+        case 'SET_MODE':
             state = action.payload;
             return state;
         case 'UNSELECTED_STATS':
