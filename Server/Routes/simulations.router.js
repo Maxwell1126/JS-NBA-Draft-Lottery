@@ -78,10 +78,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/total', (req,res)=>{
-    let allStatsNames = `SELECT "id" FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
+    let allStatsNames = `SELECT COUNT(*) FROM "simulations";`;
     pool.query(allStatsNames).then((response) => {
-        if(response.rows){
-        res.send(response.rows)
+        if(response.rows.length){
+            res.send(response.rows[0])
         } else{
             let gooseEgg = 0;
             res.send(gooseEgg);

@@ -7,9 +7,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
 import '../LotteryTeams/LotteryTeams.css'
+
 class StatsTable extends Component {
     constructor(props) {
         super(props)
+        let tableContent;
     }
 
     componentDidMount() {
@@ -19,6 +21,8 @@ class StatsTable extends Component {
         this.props.dispatch(unselectedStats);
         let stats = { type: 'GET_STATS' }
         this.props.dispatch(stats);
+        let total = { type: 'GET_TOTAL_SIMS'}
+        this.props.dispatch(total);
     }
 
 getStatByType = (event) => {
@@ -30,6 +34,13 @@ getStatByType = (event) => {
     } else if (event.target.value == 5) {
         let topFour = { type: 'GET_TOP_FOUR' }
         this.props.dispatch(topFour);
+        this.tableContent =
+            this.props.reduxStore.selectedStat.map(team => {
+                return <TableRow >
+                    <TableCell className="tableCell"><h3>{team.id}. {team.name}</h3></TableCell>
+                    <TableCell className="tableCell"><h3>{((team.count / parseInt(this.props.reduxStore.totalSims.count)) * 100).toFixed(2) }</h3></TableCell>
+                </TableRow>
+            })
     } else if (event.target.value == 6) {
         let modePlace = { type: 'GET_MODE' }
         this.props.dispatch(modePlace);
@@ -43,15 +54,16 @@ getStatByType = (event) => {
                 return <option value = {stat.id}>{stat.name}</option>
             })}
         </select>;
-        let counter = 0;
-        let tableContent =
+        this.tableContent =
             this.props.reduxStore.selectedStat.map(team => {
                 return <TableRow >
                     <TableCell className="tableCell"><h3>{team.id}. {team.name}</h3></TableCell>
                     <TableCell className="tableCell"><h3>{team.count}</h3></TableCell>
                 </TableRow>
             })
-
+    
+          let simTotal = <h3>Simulated {parseInt(this.props.reduxStore.totalSims.count)} Times</h3>
+        
         return (
             <Grid className="tableContainer"
                 container xs
@@ -59,8 +71,7 @@ getStatByType = (event) => {
                 justify="center"
                 alignItems="center">
                 <Grid item xs className="counter">
-                    <h3>Simulated {counter} Times</h3>
-                    <h6>{}</h6>
+                      {simTotal}
                 </Grid>
                 <Table item xs >
                     <TableHead>
@@ -70,7 +81,7 @@ getStatByType = (event) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {tableContent}
+                        {this.tableContent}
                     </TableBody>
                 </Table>
             </Grid>
