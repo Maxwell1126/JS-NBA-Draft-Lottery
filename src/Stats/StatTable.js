@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import '../LotteryTeams/LotteryTeams.css'
 
 class StatsTable extends Component {
@@ -64,8 +65,8 @@ getStatByType = (event) => {
                 direction="column"
                 justify="center"
                 alignItems="center">
-                <Grid item xs className="counter">
-                      {simTotal}
+                <Grid className = "counter" item xs >
+                    <tr > <td className="tableData">{simTotal} </td><td className="tableData"><Button variant="outlined" >RESET</Button></td></tr>
                 </Grid>
                 <Table item xs >
                     <TableHead>

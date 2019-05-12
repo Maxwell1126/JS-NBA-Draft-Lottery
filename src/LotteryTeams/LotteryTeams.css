@@ -1,4 +1,5 @@
 .tableContainer {
+    padding-top:1px;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -25,6 +26,11 @@ width: width 30%;
 
 .counter{
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+justify-content: space-evenly;
+}
+.tableData{
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .zionImage{
 background-image: url('../Images/zionWolves.png');
