@@ -11,7 +11,6 @@ import '../LotteryTeams/LotteryTeams.css'
 class StatsTable extends Component {
     constructor(props) {
         super(props)
-        let tableContent;
     }
 
     componentDidMount() {
@@ -34,13 +33,6 @@ getStatByType = (event) => {
     } else if (event.target.value == 5) {
         let topFour = { type: 'GET_TOP_FOUR' }
         this.props.dispatch(topFour);
-        this.tableContent =
-            this.props.reduxStore.selectedStat.map(team => {
-                return <TableRow >
-                    <TableCell className="tableCell"><h3>{team.id}. {team.name}</h3></TableCell>
-                    <TableCell className="tableCell"><h3>{((team.count / parseInt(this.props.reduxStore.totalSims.count)) * 100).toFixed(2) }</h3></TableCell>
-                </TableRow>
-            })
     } else if (event.target.value == 6) {
         let modePlace = { type: 'GET_MODE' }
         this.props.dispatch(modePlace);
@@ -54,11 +46,13 @@ getStatByType = (event) => {
                 return <option value = {stat.id}>{stat.name}</option>
             })}
         </select>;
-        this.tableContent =
+        let tableContent =
             this.props.reduxStore.selectedStat.map(team => {
                 return <TableRow >
                     <TableCell className="tableCell"><h3>{team.id}. {team.name}</h3></TableCell>
-                    <TableCell className="tableCell"><h3>{team.count}</h3></TableCell>
+                    <TableCell className="tableCell">
+                        <h3>{team.count}</h3>
+                    </TableCell>
                 </TableRow>
             })
     
@@ -81,7 +75,7 @@ getStatByType = (event) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {this.tableContent}
+                        {tableContent}
                     </TableBody>
                 </Table>
             </Grid>

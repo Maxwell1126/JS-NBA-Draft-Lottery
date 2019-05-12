@@ -38,9 +38,12 @@ router.get('/topFour', (req, res) => {
                         count: 0
                     })
                 } else {
+                    let simCount = `SELECT COUNT(*) FROM "simulations";`;
+                    let simTotal = await client.query(simCount);
+                        
                     topFourCounts.push({
                         name: teamCount.rows[0].name, id: teams.rows[i].id,
-                        count: parseInt(teamCount.rows[0].count)
+                        count: (parseInt(teamCount.rows[0].count)/parseInt(simTotal.rows[0].count)* 100).toFixed(2)
                     })
                 }
             }
@@ -89,9 +92,11 @@ router.post('/places', (req, res) => {
                             count: 0
                         })
                     } else {
+                        let simCount = `SELECT COUNT(*) FROM "simulations";`;
+                        let simTotal = await client.query(simCount);
                         placeCounts.push({
                             name: teamCount.rows[0].name, id: teams.rows[i].id,
-                            count: parseInt(teamCount.rows[0].count)
+                            count: (parseInt(teamCount.rows[0].count) / parseInt(simTotal.rows[0].count) * 100).toFixed(2)
                         })
                     }
                 }
