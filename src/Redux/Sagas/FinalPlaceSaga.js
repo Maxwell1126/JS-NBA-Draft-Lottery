@@ -34,12 +34,14 @@ function* getLatestSimulation(action){
 function* deleteSimulations(action){
     try{
         yield axios.delete('api/simulations');
-        // const originalOrder = { type: 'ORIGINAL_ORDER' }
-        // yield put(originalOrder);
-        // const resetCount = { type: 'RESET_TOTAL_SIMS' }
-        // yield put(resetCount);
-        // const resetStats = { type: 'UNSELECTED_STATS' }
-        // yield put(resetStats);
+        const originalOrder = { type: 'ORIGINAL_ORDER' }
+        yield put(originalOrder);
+        const resetCount = { type: 'RESET_TOTAL_SIMS' }
+        yield put(resetCount);
+        const resetStats = { type: 'UNSELECTED_STATS' }
+        yield put(resetStats);
+        const total = { type: 'GET_TOTAL_SIMS' }
+        yield put(total);
 
     } catch (error){
         console.log('Error deleting sims', error)

@@ -49,6 +49,8 @@ resetSimulations = () => {
     this.props.dispatch(resetCount);
     let resetStats = { type: 'UNSELECTED_STATS' }
     this.props.dispatch(resetStats);
+    let total = { type: 'GET_TOTAL_SIMS' }
+    this.props.dispatch(total);
 }
     render() {
 
@@ -67,8 +69,13 @@ resetSimulations = () => {
                     </TableCell>
                 </TableRow>
             })
-    
-          let simTotal = <h3>Simulated {parseInt(this.props.reduxStore.totalSims.count)} Times</h3>
+        let simTotal;    
+        if(parseInt(this.props.reduxStore.totalSims.count == NaN)){
+            simTotal = <h3>Simulated {0} Times</h3>
+        }else{
+            simTotal = <h3>Simulated {parseInt(this.props.reduxStore.totalSims.count)} Times</h3>
+        }
+          
         
         return (
             <Grid className="tableContainer"
