@@ -20,6 +20,8 @@ router.get('/topFour', (req, res) => {
             let topFourCounts = [];
             let getTeams = `SELECT * FROM "teams" ORDER BY "id";`;
             let teams = await client.query(getTeams);
+            let getTotals = `SELECT COUNT(*) FROM "simulations";`;
+            let simTotal = await client.query(getTotals);
             let simulationCheck = `SELECT * FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
             let simulations = await client.query(simulationCheck);
             if (simulations.rows[0]){
@@ -75,12 +77,12 @@ router.post('/places', (req, res) => {
 
             let simulationCheck = `SELECT * FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
             let simulations = await client.query(simulationCheck);
+            let getTotals = `SELECT COUNT(*) FROM "simulations";`;
+            let simTotal = await client.query(getTotals);
             let placeCounts = [];
             let getTeams = `SELECT * FROM "teams" ORDER BY "id";`;
             let teams = await client.query(getTeams);
             if (simulations.rows[0]) {
-                
-
                 for (let i = 0; i < teams.rows.length; i++) {
                     let getPlace = `SELECT "teams"."name", "teams"."id", COUNT(*) 
                                       FROM "simulations_results" JOIN "teams" ON 
@@ -97,7 +99,7 @@ router.post('/places', (req, res) => {
                         })
                     } else {                      
                         placeCounts.push({
-                            name: teamCount.rows[0].name, id: teams.rows[i].id,
+                            name: teamCount.rows[0].name, id: teams.rows[0].id,
                             count: (parseInt(teamCount.rows[0].count) / parseInt(simTotal.rows[0].count) * 100).toFixed(2)
                         })
                     }
