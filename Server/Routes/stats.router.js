@@ -20,7 +20,9 @@ router.get('/topFour', (req, res) => {
             let topFourCounts = [];
             let getTeams = `SELECT * FROM "teams" ORDER BY "id";`;
             let teams = await client.query(getTeams);
-
+            let simulationCheck = `SELECT * FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
+            let simulations = await client.query(simulationCheck);
+            if (simulations.rows[0]){
             for (let i = 0; i < teams.rows.length; i++) {
                 let getTopFour = `SELECT "teams"."name", "teams"."id", COUNT(*) 
                                     FROM "simulations_results" JOIN "teams" ON 
@@ -29,7 +31,6 @@ router.get('/topFour', (req, res) => {
                                     OR "place" = 3 OR "place" = 4)
                                     GROUP BY "teams"."name", "teams"."id" ORDER BY "teams"."id";`;
                 let values = [teams.rows[i].id];
-
                 let teamCount = await client.query(getTopFour, values);
 
                 if (teamCount.rows.length == 0) {
@@ -37,16 +38,21 @@ router.get('/topFour', (req, res) => {
                         name: teams.rows[i].name, id: teams.rows[i].id,
                         count: 0
                     })
-                } else {
-                    let simCount = `SELECT COUNT(*) FROM "simulations";`;
-                    let simTotal = await client.query(simCount);
-                        
+                } else {       
                     topFourCounts.push({
                         name: teamCount.rows[0].name, id: teams.rows[i].id,
                         count: (parseInt(teamCount.rows[0].count)/parseInt(simTotal.rows[0].count)* 100).toFixed(2)
                     })
                 }
             }
+        } else{
+                for (let i = 0; i < teams.rows.length; i++) {
+                    topFourCounts.push({
+                        name: teams.rows[i].name, id: teams.rows[i].id,
+                        count: 0
+                    })
+                }
+        }
             res.send(topFourCounts);
         } catch (e) {
             console.log('ROLLBACK', e);
@@ -68,14 +74,12 @@ router.post('/places', (req, res) => {
             await client.query('BEGIN');
 
             let simulationCheck = `SELECT * FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
-            let results = await client.query(simulationCheck);
-            if (results.rows.length == 0) {
-                gooseEgg = 0;
-                res.send(gooseEgg)
-            } else {
-                let placeCounts = [];
-                let getTeams = `SELECT * FROM "teams" ORDER BY "id";`;
-                let teams = await client.query(getTeams);
+            let simulations = await client.query(simulationCheck);
+            let placeCounts = [];
+            let getTeams = `SELECT * FROM "teams" ORDER BY "id";`;
+            let teams = await client.query(getTeams);
+            if (simulations.rows[0]) {
+                
 
                 for (let i = 0; i < teams.rows.length; i++) {
                     let getPlace = `SELECT "teams"."name", "teams"."id", COUNT(*) 
@@ -91,17 +95,23 @@ router.post('/places', (req, res) => {
                             name: teams.rows[i].name, id: teams.rows[i].id,
                             count: 0
                         })
-                    } else {
-                        let simCount = `SELECT COUNT(*) FROM "simulations";`;
-                        let simTotal = await client.query(simCount);
+                    } else {                      
                         placeCounts.push({
                             name: teamCount.rows[0].name, id: teams.rows[i].id,
                             count: (parseInt(teamCount.rows[0].count) / parseInt(simTotal.rows[0].count) * 100).toFixed(2)
                         })
                     }
                 }
-                res.send(placeCounts);
+                
+            }else{
+                for (let i = 0; i < teams.rows.length; i++) {
+                    placeCounts.push({
+                        name: teams.rows[i].name, id: teams.rows[i].id,
+                        count: 0
+                    })
+                }
             }
+            res.send(placeCounts);
         } catch (e) {
             console.log('ROLLBACK', e);
             await client.query('ROLLBACK');
@@ -131,16 +141,9 @@ router.get('/mode', (req, res) => {
                 }
             
             let simulationCheck = `SELECT * FROM "simulations" ORDER BY ID DESC LIMIT 1;`;
-            let simulations = await client.query(simulationCheck);
+            let simulations = await client.query(simulationCheck);     
             
-            if (simulations.rows.length == 0) {
-                for (let i = 0; i < teams.rows.length; i++) {
-                    modeCounts.push({
-                        name: teams[i].name, id: teams[i].id,
-                        count:0
-                    });
-                }
-            } else {
+            if (simulations.rows[0]) {
                 for (let i = 0; i < teams.rows.length; i++) {
                     let teamsMost = [];
                     for (j = 1; j < 15; j++) {
@@ -152,12 +155,11 @@ router.get('/mode', (req, res) => {
                                       GROUP BY "teams"."name", "teams"."id", "simulations_results"."place";`;
                         let values = [teams.rows[i].id, j];
                         let placeCount = await client.query(getPlace, values);
-                        if (!placeCount.rows[0]) {
+                        if (!placeCount.rows[0]) {                     
                             teamsMost.push({
                                 name: teams.rows[i].name, id: teams.rows[i].id,
                                 amount:0,
                                 count: j
-
                             })
                         } else {     
                             teamsMost.push({
@@ -172,14 +174,20 @@ router.get('/mode', (req, res) => {
                             modeCounts.push({
                                 name: teamsMost[lastIndex].name, id: teamsMost[lastIndex].id,
                                 count: teamsMost[lastIndex].count
-                            });
-                            
+                            });    
                             teamsMost = [];
                         }
                     }
                 }
-            }
-            modeCounts = modeCounts.sort(propComparator('id'));         
+                modeCounts = modeCounts.sort(propComparator('id'));
+            } else{
+                for (let i = 0; i < teams.rows.length; i++) {                       
+                    modeCounts.push({
+                        name: teams.rows[i].name, id: teams.rows[i].id,
+                        count: 0
+                    })
+                }
+            }       
             res.send(modeCounts)
             } catch (e) {
                 console.log('ROLLBACK', e);
