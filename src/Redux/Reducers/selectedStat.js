@@ -28,6 +28,7 @@ const selectedStat = (state = DEFAULT_ARRAY, action) => {
             state = action.payload;
             return state;
         case 'UNSELECTED_STATS':
+            state = DEFAULT_ARRAY;
             return state;
         default:
             return state;

@@ -89,6 +89,34 @@ router.get('/total', (req,res)=>{
     }).catch((error) => {
         console.log('error in server getting from database.', error);
     })
-})
+});
+
+router.delete('/',(req,res)=>{
+    (async () => {
+        const client = await pool.connect();
+        try {
+            await client.query('BEGIN');
+
+            let deleteSimResults = `DELETE FROM "simulations_results";`;
+            await client.query(deleteSimResults);
+
+            let deleteSims = `DELETE FROM "simulations";`;
+            await client.query(deleteSims);
+
+            await client.query('COMMIT');
+            res.sendStatus(200);
+
+        } catch (e) {
+            console.log('ROLLBACK', e);
+            await client.query('ROLLBACK');
+            throw e;
+        } finally {
+            client.release();
+        }
+    })().catch((error) => {
+        console.log('error in server deleting.', error);
+        res.sendStatus(500);
+    })
+});
 
 module.exports = router;

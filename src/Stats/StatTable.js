@@ -39,6 +39,17 @@ getStatByType = (event) => {
         this.props.dispatch(modePlace);
     }
 }
+
+resetSimulations = () => {
+    let deleteSims = { type: 'DELETE_SIMS' }
+    this.props.dispatch(deleteSims);
+    let originalOrder = { type: 'ORIGINAL_ORDER' }
+    this.props.dispatch(originalOrder);
+    let resetCount = { type: 'RESET_TOTAL_SIMS' }
+    this.props.dispatch(resetCount);
+    let resetStats = { type: 'UNSELECTED_STATS' }
+    this.props.dispatch(resetStats);
+}
     render() {
 
         let statSelector = <select onChange = {this.getStatByType}>
@@ -66,7 +77,10 @@ getStatByType = (event) => {
                 justify="center"
                 alignItems="center">
                 <Grid className = "counter" item xs >
-                    <tr > <td className="tableData">{simTotal} </td><td className="tableData"><Button variant="outlined" >RESET</Button></td></tr>
+                    <tr > <td className="tableData">{simTotal} </td>
+                    <td className="tableData">
+                    <Button onClick = {this.resetSimulations} variant="outlined" >RESET</Button>
+                    </td></tr>
                 </Grid>
                 <Table item xs >
                     <TableHead>

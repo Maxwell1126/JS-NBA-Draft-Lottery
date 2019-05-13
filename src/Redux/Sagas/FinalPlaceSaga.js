@@ -27,7 +27,22 @@ function* getLatestSimulation(action){
         const simulation = { type: 'SET_ORDER', payload: response.data }
         yield put(simulation);
     } catch (error) {
-        console.log('Error getting classes', error);
+        console.log('Error getting sims', error);
+    }
+}
+
+function* deleteSimulations(action){
+    try{
+        yield axios.delete('api/simulations');
+        // const originalOrder = { type: 'ORIGINAL_ORDER' }
+        // yield put(originalOrder);
+        // const resetCount = { type: 'RESET_TOTAL_SIMS' }
+        // yield put(resetCount);
+        // const resetStats = { type: 'UNSELECTED_STATS' }
+        // yield put(resetStats);
+
+    } catch (error){
+        console.log('Error deleting sims', error)
     }
 }
 
@@ -35,6 +50,7 @@ function* finalPlaceSaga() {
     yield takeLatest('ADD_SIMULATION', addSimulation);
     yield takeLatest('GET_LATEST_SIMULATION', getLatestSimulation);
     yield takeLatest('GET_TOTAL_SIMS', getTotalSimulations);
+    yield takeLatest('DELETE_SIMS', deleteSimulations);
 }
 
 export default finalPlaceSaga;
