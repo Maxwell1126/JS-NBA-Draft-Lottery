@@ -99,7 +99,7 @@ router.post('/places', (req, res) => {
                         })
                     } else {                      
                         placeCounts.push({
-                            name: teamCount.rows[0].name, id: teams.rows[0].id,
+                            name: teamCount.rows[0].name, id: teamCount.rows[0].id,
                             count: (parseInt(teamCount.rows[0].count) / parseInt(simTotal.rows[0].count) * 100).toFixed(2)
                         })
                     }
