@@ -8,7 +8,7 @@ VALUES('New York'),('Cleveland'),('Phoenix'),('Chicago'),('Atlanta'),('Washingto
 ('Miami'),('Boston');
 
 INSERT INTO "stats"("name")
-VALUES('% First'),('% Second'),('% Third'),('% Fourth'),('% Top Four'),('Mean Place');
+VALUES('% First'),('% Second'),('% Third'),('% Fourth'),('% Top Four'),('Team Mode');
 
 CREATE TABLE "simulations_results"("id" serial PRIMARY KEY,
     "simulation_id" INTEGER, FOREIGN KEY("simulation_id") REFERENCES "simulations"("id"),
