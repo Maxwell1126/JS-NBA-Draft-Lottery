@@ -24,15 +24,15 @@
 
 ### 1 Home Page
 #### This view shows the teams in their pre-lottery or post simulation order depending. A button for running the simulations is on this view.
-![Log In screen shot](wireframes/Log_In.png)
+![Log In screen shot](public/Home_Page.png)
 
 ### 2 Home Page (w/ Wolves winning a top 4 pick)
 #### The styling changes to a Minnesota Timberwolves theme if the Wolves win a pick 1 - 4. If Minnesota wins pick 1 or 2 a picture of the consensus player for each pick will be the background of the table.
-![Crew Dashboard screen shot](wireframes/Crew_Dashboard.png)
+![Crew Dashboard screen shot](public/Wolves_Home.png)
 
 ### 3 Stats Page
 #### The table on this page shows the teams in their pre-lottery order and a dropdown to show a specific stat for each team. A counter is on this view to show the total simulations ran and a button is next to the counter to reset and delete simulations.
-![Order Sheet screen shot](wireframes/Order_Sheet.png)
+![Order Sheet screen shot](public/Stats_Page.png)
 
 ## Completed Features
 
