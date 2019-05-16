@@ -1,68 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# NBA Draft Lottery Simulator
 
-## Available Scripts
+## Prerequisites/Software Used
 
-In the project directory, you can run:
+### Setup
 
-### `npm start`
+- Node.js
+- Postico
+- Terminal
+- React
+- React-Redux
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Installing
 
-### `npm test`
+- Download project
+- `npm install`
+- `createdb draft_lottery`
+- `use database.sql to insert necessary tables to database.`
+- `npm run server`
+- `npm run client`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screen Shots
 
-### `npm run build`
+### 1 Home Page
+#### This view shows the teams in their pre-lottery or post simulation order depending. A button for running the simulations is on this view.
+![Log In screen shot](wireframes/Log_In.png)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2 Home Page (w/ Wolves winning a top 4 pick)
+#### The styling changes to a Minnesota Timberwolves theme if the Wolves win a pick 1 - 4. If Minnesota wins pick 1 or 2 a picture of the consensus player for each pick will be the background of the table.
+![Crew Dashboard screen shot](wireframes/Crew_Dashboard.png)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### 3 Stats Page
+#### The table on this page shows the teams in their pre-lottery order and a dropdown to show a specific stat for each team. A counter is on this view to show the total simulations ran and a button is next to the counter to reset and delete simulations.
+![Order Sheet screen shot](wireframes/Order_Sheet.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Completed Features
 
-### `npm run eject`
+- The Home Page shows a table of the teams in their pre-lottery order. The Simulate Draft Lottery button on this page will run the lottery and reorder the teams according to the lottery results. Teams will have a plus or minus next to their place to show how many places they dropped or moved up.
+- If the Minnesota Timberwolves win a top four pick, the css stylings for the Home Page will change to a fun Timberwolves theme. If the Timberwolves win the first or second overall pick, the table that shows the teams in order will have a opaque picture of the consensus number 1 player or consensus number 2 player with a Minnesota jersey as its background. 
+takes the user to the ordersheet(s) for the clicked order.
+- The Stats Page shows the teams in their pre-lottery order. This view shows a counter for the number of times that the user has simulated the lottery. Next to this counter is a button to reset the stats by deleting the past simulations. The table on this view shows the teams in one column, and shows a dropdown menu to select a specific stat in the other column.
+- The specific stats on the Stats Page shows every team's percent of times they received the first pick, second pick, third, fourth, and times they got a pick 1-4 out of all the simulations the user preformed. The last stat it displays is the team mode, which shows what pick each team received the most out of all the simulations the user preformed.
+- The app will not show all of the stylings on mobile, but does show the tables and buttons nicely.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Future Features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- I will add small team logos next to team names.
+- I will add a hamburger menu.
+- In future itterations of this project, I would like to include a mock draft to go along with the lottery results. This mock draft would show what player would be selected where given the results of the lottery.
+- I will create a page called the 'Info Page' to explain to users how the draft lottery works, explain trades that can effect what team picks where, and explain the Stats Page and app in general. 
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Heroku: https://nba-draft-lottery-simulator.herokuapp.com/#/home
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Author
 
-### Analyzing the Bundle Size
+- Max Todd
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+## Acknowledge 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- I would like to thank my family and girlfriend for being patient and for at least feigning interest every time I was excited about a breakthrough in this project. 
+- I would like to thank my friends Mike and Sharmarke for looking over my code in places and giving their input.
+- I will always be thankful to Prime Digital Academy for helping me get to the point where I can develop an app like this.
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
