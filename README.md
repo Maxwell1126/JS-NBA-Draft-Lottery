@@ -63,7 +63,7 @@ takes the user to the ordersheet(s) for the clicked order.
 - Max Todd
 
 
-## Acknowledge 
+## Acknowledgements
 
 - I would like to thank my family and girlfriend for being patient and for at least feigning interest every time I was excited about a breakthrough in this project. 
 - I would like to thank my friends Mike and Sharmarke for looking over my code in places and giving their input.
