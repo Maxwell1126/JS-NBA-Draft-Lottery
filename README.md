@@ -65,7 +65,7 @@ takes the user to the ordersheet(s) for the clicked order.
 
 ## Acknowledgements
 
-- I would like to thank my family and girlfriend for being patient and for at least feigning interest every time I was excited about a breakthrough in this project. 
+- I would like to thank my family and girlfriend for being patient with me, and for at least feigning interest every time I was excited about a breakthrough in this project. 
 - I would like to thank my friends Mike and Sharmarke for looking over my code in places and giving their input.
 - I will always be thankful to Prime Digital Academy for helping me get to the point where I can develop an app like this.
 
