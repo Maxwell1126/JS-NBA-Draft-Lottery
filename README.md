@@ -50,10 +50,10 @@ takes the user to the ordersheet(s) for the clicked order.
 
 ## Future Features
 
-- I will add small team logos next to team names.
-- I will add a hamburger menu.
+- Add small team logos next to team names on the tables.
+- Add a hamburger menu for the nav bar.
 - In future itterations of this project, I would like to include a mock draft to go along with the lottery results. This mock draft would show what player would be selected where given the results of the lottery.
-- I will create a page called the 'Info Page' to explain to users how the draft lottery works, explain trades that can effect what team picks where, and explain the Stats Page and app in general. 
+- Create a page called the 'Info Page' to explain to users how the draft lottery works, explain trades that can effect what team picks where, and explain the Stats Page and app in general. 
 
 
 ## Deployment
