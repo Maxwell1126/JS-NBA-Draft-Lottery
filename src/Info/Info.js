@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Home.css';
 import '../index.css';
-import LotteryTeams from '../LotteryTeams/LotteryTeams.js';
 import Grid from '@material-ui/core/Grid';
-class Home extends Component {
+class Info extends Component {
     constructor() {
         super()
     }
@@ -35,7 +34,8 @@ class Home extends Component {
                         <div className={leftImage}></div>
                     </Grid>
                     <Grid item xs>
-                        <LotteryTeams />
+                        <div>
+                        </div>
                     </Grid>
                     <Grid item xs>
                         {oldWolves}
@@ -50,4 +50,4 @@ class Home extends Component {
 const mapStateToProps = reduxStore => ({
     reduxStore
 });
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Info);
