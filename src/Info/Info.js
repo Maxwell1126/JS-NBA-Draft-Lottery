@@ -56,8 +56,9 @@ class Info extends Component {
                                 ten teams are given picks five through fourteen in order of their record with the worst team getting the fifth pick.
                             </li>
                             <li>
-                                The odds for each team to receive the first overall pick are as follows:
-                                
+                                The odds for each team to receive every pick are as follows:
+                                <div className = "draftOdds"></div>
+
                             </li>
                         </ul>
                         </div>
