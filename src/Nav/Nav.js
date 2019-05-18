@@ -23,6 +23,9 @@ class Nav extends Component {
                 <Link className = {navStyle} to = "/stats">
                     Stats
                 </Link>
+                <Link className={navStyle} to="/info">
+                    Info
+                </Link>
             </div>
         )
     }
