@@ -33,15 +33,19 @@ class Info extends Component {
                         {newWolves}
                         <div className={leftImage}></div>
                     </Grid>
-                    <Grid item xs>
+                    <Grid item xs
+                        // direction="row"
+                        // justify="center"
+                        // alignItems="center"
+                        >
                         <div>
                         
                         <ul>
                                 <h1>Draft Lottery Description</h1>
                             <li>
-                                The Draft Lottery is a random drawing between the non-playoff teams of the NBA to determine who
-                                gets the right to picks one through four. Each team gets a different percent of chance to win the lottery based
-                                on how poorly they performed.
+                                The Draft Lottery is a random drawing between the non-playoff teams of the NBA to determine which teams
+                                get the right to one of the top four picks. Each team gets a certain percent of chance to win the lottery based
+                                on how poorly they performed in that year's regular season.
                             </li>
                             <li>
                                 The NBA is comprosied of thirty teams and has two conferences, the East and West.
@@ -51,17 +55,18 @@ class Info extends Component {
                             </li>
                             <li>
                                 The lottery begins by determining who gets the first overall pick. a random number is drawn and who ever
-                                owns the number then owns the first overall pick. The team the number belonged to can no longer win any other picks.
-                                This process is then repeated for picks two through three. Once the top four picks have been determined, the remaining
+                                owns the number then owns the first overall pick. The team the number belongs to can no longer win any other picks.
+                                This process is then repeated for picks two through four. Once the top four picks have been determined, the remaining
                                 ten teams are given picks five through fourteen in order of their record with the worst team getting the fifth pick.
                             </li>
                             <li>
                                 The odds for each team to receive every pick are as follows:
-                                <div className = "draftOdds"></div>
-
+                                
                             </li>
                         </ul>
+                            
                         </div>
+                        <div className="draftOdds"></div>
                     </Grid>
                     <Grid item xs>
                         {oldWolves}
