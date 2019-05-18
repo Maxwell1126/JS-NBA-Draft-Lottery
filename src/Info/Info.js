@@ -55,6 +55,10 @@ class Info extends Component {
                                 This process is then repeated for picks two through three. Once the top four picks have been determined, the remaining
                                 ten teams are given picks five through fourteen in order of their record with the worst team getting the fifth pick.
                             </li>
+                            <li>
+                                The odds for each team to receive the first overall pick are as follows:
+                                
+                            </li>
                         </ul>
                         </div>
                     </Grid>
