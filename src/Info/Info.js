@@ -65,7 +65,12 @@ class Info extends Component {
                         <div className="draftOdds"></div>
                         <h6>Image Credit: https://towardsdatascience.com/what-are-the-odds-a-statistical-analysis-of-tanking-in-the-nba-2c5fe228cd67</h6>
                     </Grid>
-                    
+                    <div className="contentContainer">
+                    <h1>Trades</h1>
+                    <li>
+                        It is common in the NBA for teams to trade players to other teams.
+                    </li>
+                    </div>
                     </Grid>
                     
                 <Grid item xs className="rightImageContainer">
