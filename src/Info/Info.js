@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import '../Home/Home.css';
 import '../index.css';
 import Grid from '@material-ui/core/Grid';
-import InfoContent from './InfoContent.js';
 class Info extends Component {
     constructor() {
         super()
@@ -56,10 +55,10 @@ class Info extends Component {
                                     This process is then repeated for picks two through four. Once the top four picks have been determined, the remaining
                                     ten teams are given picks five through fourteen in order of their record with the worst team getting the fifth pick.
                             </li>
-                                <p>
+                                <p><strong>
                                     The odds for each team to receive every pick are as follows:
-            
-                            </p>
+    
+                            </strong></p>
 
                         </div>
                     <Grid >
