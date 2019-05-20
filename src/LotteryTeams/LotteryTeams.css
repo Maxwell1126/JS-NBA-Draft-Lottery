@@ -8,6 +8,7 @@ height: 908px;
 width: width 30%;
 }
 
+
 .red{
     color:#EF3636;
 }
@@ -27,24 +28,25 @@ width: width 30%;
 }
 
 .counter{
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-justify-content: space-evenly;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    justify-content: space-evenly;
 }
+
 .tableData{
     padding-left: 10px;
     padding-right: 10px;
 }
 .zionImage{
-background-image: url('../Images/zionWolves.png');
-background-size: contain;
-background-repeat: no-repeat;
-background-position: top;
-padding-top: 10px;
+    background-image: url('../Images/zionWolves.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding-top: 10px;
 }
 
 .morantImage{
-background-image: url('../Images/ja_morant.jpg');
-background-size: contain;
-background-repeat: no-repeat;
-background-position: top;
+    background-image: url('../Images/ja_morant.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
 }

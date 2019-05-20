@@ -1,132 +1,154 @@
 .container{
   margin-top:0px;
-  overflow: scroll;
-}
-
-@media only screen and (max-width: 700px) {
-  .courtRight { 
-    display:none;
-    width:0px;
-  }
-  .courtLeft {
-    display:none;
-    width:0px;
-  }
-  .karlBBQ{
-    display: none;
-    width:0px;
-  }
-  .karlSmirk{
-    display: none;
-    width:0px;
-  }
-  .oldWolves{
-    display: none;
-    width:0px;
-  }
-  .newWolves{
-    display: none;
-    width:0px;
-  }
-  .content{
-    width:auto;
-  }
-}
-.content {
-
-  height: 908px;
-  overflow: scroll;
-  background-position:center;
-
-align-items: flex-start;
-justify-content: center;
-}
-.courtRight { 
-  max-width: width 30%;
-  min-height: 908px;
-  background-image: url('../Images/Court_Right.png');
-  background-position:right;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.courtRight::after {
-  max-width: width 30%;
-  min-height: 908px;
-  display: block;
-  position: relative;
-  background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0, #fff 100%);
-  height: 150px;
-  width: 100%;
-  content: '';
-}
-
-.courtLeft {
-  max-width: width 30%;
-  min-height: 908px;
-  background-image: url('../Images/Court_Left.png');
-  background-position:left;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.courtLeft::after {
-  max-width: width 30%;
-  min-height: 908px;
-  display: block;
-  position: relative;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #fff 100%);
-  height: 150px;
-  width: 100%;
-  content: '';
-}
-
-.karlSmirk{
-  max-width: width 30%;
-  min-height: 454px;
-  background-image: url('../Images/karlSmirk.jpg');
-  background-position:bottom;
-  background-repeat:no-repeat;
-  background-size:contain;
-}
-
-.oldWolves{
-  max-width: width 30%;
-  min-height: 454px;
-  background-image: url('../Images/oldWolves.png');
-  background-position:center;
-  background-size: contain;
-  background-repeat:no-repeat;
-  padding:1px;
-}
-.karlBBQ{
-  max-width: width 30%;
-  min-height: 454px;
-  background-image: url('../Images/karlBBQ.jpg');
-  background-position:bottom;
-  background-repeat:no-repeat;
-  background-size:contain;
-}
-
-.newWolves{
-  max-width: width 30%;
-  min-height: 454px;
-  background-image: url('../Images/new_wolves.png');
-  background-position:center;
-  background-size: contain;
-  background-repeat:no-repeat;
-  padding:1px;
-}
-
-.draftOdds{
-    background-image: url('../Images/Draft_Odds.png');
-    width: 100%;
-    height: 300px;
-    background-position:center;
-    background-size: contain;
-    background-repeat:no-repeat;
 }
 
 li{
   padding:10px;
 }
+
+h1{
+  text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .courtRight { 
+    display:none;
+    width:1px;
+  }
+  .courtLeft {
+    display:none;
+    width:1px;
+  }
+  .karlBBQ{
+    display: none;
+    width:1px;
+  }
+  .karlSmirk{
+    display: none;
+    width:1px;
+  }
+  .oldWolves{
+    display: none;
+    width:1px;
+  }
+  .newWolves{
+    display: none;
+    width:1px;
+  }
+  .content{
+    display:block;
+    overflow: visible;
+    width:200px;
+  }
+
+  .draftOdds{
+    background-image: url('../Images/Draft_Odds.png');
+    width: 100%;
+    margin:5px;
+    height: 300px;
+    background-position:center;
+    background-size: contain;
+    background-repeat:no-repeat;
+  }
+
+}
+
+@media only screen and (min-width: 701px) {
+
+  .content {
+    height: 908px;
+    overflow: auto;
+    margin:10px;
+  }
+
+  .courtRight { 
+    max-width: width 30%;
+    min-height: 908px;
+    background-image: url('../Images/Court_Right.png');
+    background-position:right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+  .courtRight::after {
+    max-width: width 30%;
+    min-height: 908px;
+    display: block;
+    position: relative;
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0, #fff 100%);
+    height: 150px;
+    width: 100%;
+    content: '';
+  }
+
+  .courtLeft {
+    max-width: width 30%;
+    min-height: 908px;
+    background-image: url('../Images/Court_Left.png');
+    background-position:left;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .courtLeft::after {
+    max-width: width 30%;
+    min-height: 908px;
+    display: block;
+    position: relative;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #fff 100%);
+    height: 150px;
+    width: 100%;
+    content: '';
+  }
+
+  .karlSmirk{
+    max-width: width 30%;
+    min-height: 454px;
+    background-image: url('../Images/karlSmirk.jpg');
+    background-position:bottom;
+    background-repeat:no-repeat;
+    background-size:contain;
+  }
+
+  .oldWolves{
+    max-width: width 30%;
+    min-height: 454px;
+    background-image: url('../Images/oldWolves.png');
+    background-position:center;
+    background-size: contain;
+    background-repeat:no-repeat;
+    padding:1px;
+  }
+  .karlBBQ{
+    max-width: width 30%;
+    min-height: 454px;
+    background-image: url('../Images/karlBBQ.jpg');
+    background-position:bottom;
+    background-repeat:no-repeat;
+    background-size:contain;
+  }
+
+  .newWolves{
+    max-width: width 30%;
+    min-height: 454px;
+    background-image: url('../Images/new_wolves.png');
+    background-position:center;
+    background-size: contain;
+    background-repeat:no-repeat;
+    padding:1px;
+  }
+
+  .draftOdds{
+    margin-left:10px;
+    padding-right: 10px;
+    background-image: url('../Images/Draft_Odds.png');
+    height: 300px;
+    background-position:center;
+    background-size: contain;
+    background-repeat:no-repeat;
+  }
+
+}
+
+
+
