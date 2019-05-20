@@ -68,8 +68,26 @@ class Info extends Component {
                     <div className="contentContainer">
                     <h1>Trades</h1>
                     <li>
-                        It is common in the NBA for teams to trade players to other teams.
+                        It is common in the NBA for teams to trade players to other teams. In these trades, it is also common to exchange or trade away future draft picks.
+                        When draft picks are traded away, they are often "protected" to some degree. For example, a pick can be traded away and be "top ten protected".
+                        This means that if the draft pick falls in the top ten after the draft lottery concludes, the pick returns to the original team. Protections
+                        usually end after a number of years, and diminish in number of selections they protect over time as well.
                     </li>
+                    <li> This year's draft lottery does feature a few teams that could
+                            lose their pick if it falls out of their protected range.
+                    </li>
+                        <p><strong>The teams whose picks are in jeoprady of being given to another team because of a trade are as follows:</strong></p>
+
+                        <li>Memphis' pick is top 8 protected. It will otherwise go to Boston. Memphis' pick enters the lottery at seed 8.</li>
+
+                        <li>Dallas' pick is top 4 protected. It otherwise will go to Atlanta. Dallas' pick enters the lottery at seed 9.</li>
+
+                        <li>Boston's pick was traded to them by Sacramento. It is protected 2-60. If the pick at the end of the lottery is 1 overall, it will go to Philadelphia.
+                            Boston's pick enters the lottery at seed 14.
+                        </li>
+                        
+
+                    
                     </div>
                     </Grid>
                     
