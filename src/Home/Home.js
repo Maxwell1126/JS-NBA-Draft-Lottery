@@ -24,6 +24,7 @@ class Home extends Component {
             }
         })
         return (
+            <div>
                 <Grid className="container"
                     container
                     direction="row"
@@ -41,6 +42,7 @@ class Home extends Component {
                         <div className={rightImage}></div>
                     </Grid>
                 </Grid>
+            </div>
         );
     }
 }

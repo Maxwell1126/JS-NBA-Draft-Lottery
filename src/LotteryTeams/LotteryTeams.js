@@ -46,7 +46,7 @@ class LotteryTeams extends Component {
         })
 
         return (
-            
+            <div>
                 <Grid className="tableContainer"
                     container xs
                     direction="column"
@@ -68,7 +68,7 @@ class LotteryTeams extends Component {
                     </TableBody>                
                 </Table>
                 </Grid>
-           
+            </div>
         )
     }
 }
