@@ -30,7 +30,7 @@ class Info extends Component {
                     direction="row"
                     justify="space-between"
                     alignItems="flex-start">
-                    <Grid item xs>
+                    <Grid item xs className = "leftImageContainer">
                         {newWolves}
                         <div className={leftImage}></div>
                     </Grid>
@@ -62,11 +62,14 @@ class Info extends Component {
                             </p>
 
                         </div>
-                    <Grid className="draftOdds">
-                    </Grid>
+                    <Grid >
+                        <div className="draftOdds"></div>
+                        <h6>Image Credit: https://towardsdatascience.com/what-are-the-odds-a-statistical-analysis-of-tanking-in-the-nba-2c5fe228cd67</h6>
                     </Grid>
                     
-                    <Grid item xs>
+                    </Grid>
+                    
+                <Grid item xs className="rightImageContainer">
                         {oldWolves}
                         <div className={rightImage}></div>
                     </Grid>

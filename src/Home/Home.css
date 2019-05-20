@@ -11,6 +11,17 @@ h1{
 }
 
 @media only screen and (max-width: 700px) {
+
+  .rightImageContainer{
+    width:0px;
+    display:none;
+  }
+
+  .leftImageContainer{
+    width:0px;
+    display:none;
+  }
+
   .courtRight { 
     display:none;
     width:1px;
@@ -36,16 +47,16 @@ h1{
     width:1px;
   }
   .content{
+    padding:5px;
     display:block;
     overflow: visible;
-    width:200px;
   }
 
   .draftOdds{
     background-image: url('../Images/Draft_Odds.png');
     width: 100%;
-    margin:5px;
-    height: 300px;
+
+    height: 200px;
     background-position:center;
     background-size: contain;
     background-repeat:no-repeat;
