@@ -34,6 +34,7 @@ class Info extends Component {
                         <div className={leftImage}></div>
                     </Grid>
                     <Grid item xs
+                    className = "content"
                         // direction="row"
                         // justify="center"
                         // alignItems="center"
