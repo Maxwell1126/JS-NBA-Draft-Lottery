@@ -28,7 +28,7 @@ const draftLotteryOrder = (state = DEFAULT_ORDER, action) => {
                 } else if (latestOrder[i].seed == 8 && latestOrder[i].place <= 8) {
                     latestOrder[i].name = "Memphis";
                 } else if (latestOrder[i].seed == 14 && latestOrder[i].place == 1) {
-                    latestOrder[i].name = "Sacramento";
+                    latestOrder[i].name = "Philadelphia";
                 } else if (latestOrder[i].seed == 14 && latestOrder[i].place != 1) {
                     latestOrder[i].name = "Boston";
                 }

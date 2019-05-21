@@ -82,7 +82,7 @@ class Info extends Component {
 
                         <li>Dallas' pick is top 4 protected. It otherwise will go to Atlanta. Dallas' pick enters the lottery at seed 9.</li>
 
-                        <li>Boston's pick was traded to them by Sacramento. It is protected 2-60. If the pick at the end of the lottery is 1 overall, it will go to Philadelphia.
+                        <li>Boston's pick was traded to them by Sacramento. It is protected 2-60. If their pick at the end of the lottery is 1 overall, it will go to Philadelphia.
                             Boston's pick enters the lottery at seed 14.
                         </li>
                         

@@ -3,7 +3,7 @@
     .tableContainer {
         padding-top:1px;
         height: 908px;
-        overflow: scroll;
+        overflow: auto;
         width: width 30%;
     }
 }
@@ -11,6 +11,8 @@
 @media only screen and (max-width: 700px) {
     .tableContainer {
         overflow: visible;
+        padding-top:1px;
+        height: 908px;      
     }
 }
 
