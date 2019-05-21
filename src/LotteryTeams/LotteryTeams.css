@@ -1,13 +1,18 @@
-.tableContainer {
-    padding-top:1px;
-/* display: flex;
-align-items: center;
-justify-content: center; */
-height: 908px;
-  overflow: scroll;
-width: width 30%;
+
+@media only screen and (min-width: 701px) {
+    .tableContainer {
+        padding-top:1px;
+        height: 908px;
+        overflow: scroll;
+        width: width 30%;
+    }
 }
 
+@media only screen and (max-width: 700px) {
+    .tableContainer {
+        overflow: visible;
+    }
+}
 
 .red{
     color:#EF3636;
