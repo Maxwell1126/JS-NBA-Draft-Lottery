@@ -8,6 +8,11 @@ class Info extends Component {
         super()
     }
 
+    componentDidMount() {
+        let action = { type: 'GET_LATEST_SIMULATION' }
+        this.props.dispatch(action);
+    }
+
     render() {
         let leftImage = "courtLeft";
         let rightImage = "courtRight";
