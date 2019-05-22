@@ -40,7 +40,7 @@ class Info extends Component {
                     </Grid>
                     <Grid item xs className="content">
                     
-                        <div >
+                    <div className="contentContainer">
                                 <h1>Draft Lottery Description</h1>
 
                                 <li>
