@@ -29,7 +29,7 @@ class Info extends Component {
         })
         return (
 
-                <Grid 
+                <Grid className = "container"
                     container
                     direction="row"
                     justify="space-between"
@@ -40,7 +40,7 @@ class Info extends Component {
                     </Grid>
                     <Grid item xs className="content">
                     
-                        <div className ="contentContainer">
+                        <div >
                                 <h1>Draft Lottery Description</h1>
 
                                 <li>

@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Nav.css';
+
 class Nav extends Component {
-    constructor(props) {
+    constructor(props) { 
         super(props)
     }
+ 
     render() {
         let navStyle = "nav";
         this.props.reduxStore.draftLotteryOrder.map(team => {
@@ -15,6 +17,7 @@ class Nav extends Component {
                 return navStyle;
             }
         })
+        
         return (
             <div >
                 <Link className = {navStyle} to = "/home">

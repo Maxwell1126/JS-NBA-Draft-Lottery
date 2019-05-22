@@ -8,7 +8,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import '../LotteryTeams/LotteryTeams.css'
-
 class StatsTable extends Component {
     constructor(props) {
         super(props)

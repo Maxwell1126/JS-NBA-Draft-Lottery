@@ -5,7 +5,7 @@ import StatTable from './StatTable.js';
 import '../Home/Home.css';
 import '../index.css';
 class Stats extends Component {
-    constructor() {
+    constructor() {      
         super()
     }
     componentDidMount() {
@@ -30,6 +30,7 @@ class Stats extends Component {
         return (
             <div>
                 <Grid
+                    className = "container"
                     container
                     direction="row"
                     justify="space-between"

@@ -1,5 +1,6 @@
 .container{
-  margin-top:0px;
+  margin-top:5px;
+  padding-top:5px;
 }
 
 li{
@@ -9,9 +10,7 @@ li{
 h1{
   text-align: center;
 }
-p{
-  
-}
+
 
 @media only screen and (max-width: 700px) {
 
