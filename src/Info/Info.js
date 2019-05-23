@@ -39,7 +39,13 @@ class Info extends Component {
                         <div className={leftImage}></div>
                     </Grid>
                     <Grid item xs className="content">
-                    
+                    <div className="contentContainer">
+                        <h1>About the App</h1>
+                        <p><strong>
+                            The Home Page
+                        </strong></p>
+                        <li></li>
+                    </div>
                     <div className="contentContainer">
                                 <h1>Draft Lottery Description</h1>
 
