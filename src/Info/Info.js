@@ -44,7 +44,28 @@ class Info extends Component {
                         <p><strong>
                             The Home Page
                         </strong></p>
-                        <li></li>
+                        <li>The Home Page contains a table with all of the lottery teams and their place. 
+                            If the user hasn't yet run any simulations, the table will display the lottery
+                            teams in their pre-lottery seed order, and thier place will be their pre-lottery seed.
+                        </li>
+                        <li>
+                            Once the lottery is simulated, the teams are organized by the simulation 
+                            results. The table will show team's new places and a green or red number next to
+                            their place tto show how many places a team moved up or fell in the lottery.
+                        </li>
+                        <li>
+                            The Home Page also contains a button to simulate the draft lottery. This button will
+                            run the lottery, and then the table will change to show the results of the simulation.
+                            The results of simulations are storred in the database, and the Home Page will always
+                            show the latest simulation's results until the user resets and deletes all simulations.
+                        </li>
+                        <li>
+                            The app's theme will change to a Minnesota Timberwolves theme if the Timberwolves
+                            win one of the top four picks. If the Timberwolves win the first overall pick or second 
+                            overall pick, the table on the Home Page will have an opaque image of the consensus first overall
+                            player or second overall player with a painted on Timberwolves jersey. The theme returns to normal
+                            when future simulations have Minnesota outside of the top four. 
+                        </li>
                     </div>
                     <div className="contentContainer">
                                 <h1>Draft Lottery Description</h1>
