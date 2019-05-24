@@ -70,7 +70,17 @@ class Info extends Component {
                             The Stats Page
                         </strong></p>
                         <li>
-                            
+                            The Stats Page functions to show the user how many times they have simulated the lottery, gives the user
+                            the ability to reset and delete all past simulations, and see different stats about the simulations they
+                            have run.
+                        </li>
+                        <li>
+                            The Stats Page includes a table with the lotery teams organized by their pre-lotttery seed.
+                            The other column on the table contains a dropdown menu where a user can select a stat to display for 
+                            all of the teams. One of the stats that a user can chose from includes the team mode pick for each team, or the pick
+                            that each team received the most in all the simulations run. Additionally, the user can select to see the percentage of times
+                            each team was awarded, first place, second place, third place, fourth place, and the perectage of times each team
+                            was in the top four.
                         </li>
                     </div>
                     <div className="contentContainer">
