@@ -45,6 +45,7 @@ takes the user to the ordersheet(s) for the clicked order.
 - The Stats Page shows the teams in their pre-lottery order. This view shows a counter for the number of times that the user has simulated the lottery. Next to this counter is a button to reset the stats by deleting the past simulations. The table on this view shows the teams in one column, and shows a dropdown menu to select a specific stat in the other column.
 - The specific stats on the Stats Page shows every team's percent of times they received the first pick, second pick, third, fourth, and times they got a pick 1-4 out of all the simulations the user preformed. The last stat it displays is the team mode, which shows what pick each team received the most out of all the simulations the user preformed.
 - The app will not show all of the stylings on mobile, but does show the tables and buttons nicely.
+- The Info Page will describe the apps features as well as what the NBA draft lottery is. It is a scrollable view.
 
 
 
@@ -53,7 +54,6 @@ takes the user to the ordersheet(s) for the clicked order.
 - Add small team logos next to team names on the tables.
 - Add a hamburger menu for the nav bar.
 - In future itterations of this project, I would like to include a mock draft to go along with the lottery results. This mock draft would show what player would be selected where given the results of the lottery.
-- Create a page called the 'Info Page' to explain to users how the draft lottery works, explain trades that can effect what team picks where, and explain the Stats Page and app in general. 
 
 
 ## Deployment
