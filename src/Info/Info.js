@@ -66,6 +66,12 @@ class Info extends Component {
                             player or second overall player with a painted on Timberwolves jersey. The theme returns to normal
                             when future simulations have Minnesota outside of the top four. 
                         </li>
+                        <p><strong>
+                            The Stats Page
+                        </strong></p>
+                        <li>
+                            
+                        </li>
                     </div>
                     <div className="contentContainer">
                                 <h1>Draft Lottery Description</h1>
