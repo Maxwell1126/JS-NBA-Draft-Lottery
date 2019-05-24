@@ -54,6 +54,7 @@ takes the user to the ordersheet(s) for the clicked order.
 - Add small team logos next to team names on the tables.
 - Add a hamburger menu for the nav bar.
 - In future itterations of this project, I would like to include a mock draft to go along with the lottery results. This mock draft would show what player would be selected where given the results of the lottery.
+- Add additional stats for users to choose from including a stat to show total movement of each team in the simulations the user runs.
 
 
 ## Deployment
