@@ -1,7 +1,7 @@
 # NBA Draft Lottery Simulator
 
 ## Description
-#### This app will simulate the 2019 NBA Draft Lottery and show the results. The user can simulate the lottery as many times as they like and then they can navigate to the Stats Page to view the stats of all the simulations they ran. The Stats page shows the count of total simulations ran, a button to delete past simulations, and a table with teams and a dropdown to select a stat to display. Users can see the percent of times each team won a pick 1 -4, got into the top 4, and what pick each team recieved the most.
+#### This app will simulate the 2019 NBA Draft Lottery and show the results. The user can simulate the lottery as many times as they like and then they can navigate to the Stats Page to view the stats of all the simulations they ran. The Stats page shows the count of total simulations ran, a button to delete past simulations, and a table with teams and a dropdown to select a stat to display. Users can see the percent of times each team won a pick 1 -4, got into the top 4, and what pick each team recieved the most. The Info page will goes in detail about what the NBA draft lottery is and what each feature of this app does.
 
 ## Prerequisites/Software Used
 
