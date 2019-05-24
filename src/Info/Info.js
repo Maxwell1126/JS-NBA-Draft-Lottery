@@ -82,6 +82,12 @@ class Info extends Component {
                             each team was awarded, first place, second place, third place, fourth place, and the perectage of times each team
                             was in the top four.
                         </li>
+                        <li>
+                            The Stats Page contains a counter at the top of the page to inform the user of the number of times they simulated the lottery.
+                            Next to this counter is a button to "reset", which deletes all past simulations from the database. After reseting,
+                            the user will only see zero for each stat they select on the stats page until they simulatte the lottery again.
+                            The counter also reflects the reset by showing the user the total simulations run is zero.
+                        </li>
                     </div>
                     <div className="contentContainer">
                                 <h1>Draft Lottery Description</h1>
